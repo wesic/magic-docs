@@ -131,7 +131,12 @@ export default function getNavigation(dirPath = path.join(process.cwd(), 'src/co
 
       const contentDir = path.join(process.cwd(), 'src/content');
       const relativePath = path.relative(contentDir, fullPath);
-      const normalizedPath = relativePath.replace(/\\/g, '/').replace(/\.mdx?$/, '');
+      let normalizedPath = relativePath.replace(/\\/g, '/').replace(/\.mdx?$/, '');
+      
+      // Remove /index from slug so index.mdx files map to their parent directory
+      if (normalizedPath.endsWith('/index')) {
+        normalizedPath = normalizedPath.replace(/\/index$/, '');
+      }
 
       const item = {
         slug: normalizedPath,
