@@ -1,0 +1,45 @@
+---
+title: "Troubleshooting"
+description: "Fix common PWA Plus issues"
+updatedAt: "2024-12-09"
+summary: "Solutions to common installation, PWA, and service worker issues"
+navLabel: "Troubleshooting"
+navIcon: "wrench"
+---
+
+# Troubleshooting Guide
+
+Common issues and fixes for PWA Plus.
+
+## Installation Issues
+
+- **Module not appearing:** Verify path `/modules/addons/pwaplus/`; permissions 755/644; PHP 7.4/8.x; clear WHMCS cache.
+- **Cannot activate:** Check PHP version; database permissions; WHMCS 8.0+; re-upload files.
+
+## PWA Install Issues
+
+- **No install prompt:** Ensure HTTPS; modern browser; manifest accessible; service worker registered; hard refresh (Cmd/Ctrl+Shift+R).
+- **iOS install:** Use Safari → Share → Add to Home Screen; iOS 11.3+ required.
+- **App installs but won't open:** Verify `start_url`, HTTPS, clear app data, check console errors.
+
+## Service Worker & Offline
+
+- **Not registering:** HTTPS required; correct path/scope; check console; clear service workers and caches.
+- **Not updating:** Force update in DevTools; clear site data; reinstall; bump version.
+- **Offline not working:** Confirm caching enabled; check Cache Storage; test in DevTools Offline mode.
+
+## Performance & Maintenance
+
+- **Slow loading:** Enable aggressive caching; optimize images; enable compression; review cache strategy.
+- **High data usage:** Compress assets; use WebP; reduce API calls; enable CDN.
+
+## User Issues
+
+- **Cannot log in:** Clear cache/cookies; verify credentials; disable extensions; try incognito; check WHMCS sessions.
+- **Persistent login failing:** Ensure cookies allowed; secure cookies over HTTPS; re-login after clearing data.
+
+## Browser Tips
+
+- Chrome/Edge: update browser; clear data; check service worker at `chrome://serviceworker-internals/`.
+- Safari: use Add to Home Screen; ensure apple-touch-icon present; clear cache.
+- Firefox: limited PWA support; recommend Chrome/Edge for install.

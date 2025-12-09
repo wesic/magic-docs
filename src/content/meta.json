@@ -1,5 +1,7 @@
 { 
   "pages": {
-    "get-started": 1
+    "get-started": 1,
+    "products": 2,
+    "pwa-plus": 3
   }
 }

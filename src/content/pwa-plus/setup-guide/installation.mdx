@@ -1,0 +1,168 @@
+---
+title: "Installation"
+description: "Step-by-step installation guide for PWA Plus"
+updatedAt: "2024-12-09"
+summary: "Complete guide to installing PWA Plus on your WHMCS system"
+navLabel: "Installation"
+navIcon: "download"
+---
+
+# Installation Guide
+
+Follow this step-by-step guide to install PWA Plus on your WHMCS system.
+
+## Prerequisites
+
+<Card padding="20" radius="l" border="neutral-alpha-medium" fillWidth marginBottom="24">
+  <Column gap="16">
+    <Row gap="12" horizontal="start" vertical="center">
+      <Icon name="alertCircle" size="m" onBackground="brand-medium" />
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Before You Begin</Text>
+    </Row>
+    <Text variant="body-default-m" onBackground="neutral-weak">
+      Ensure your system meets these requirements before installing PWA Plus:
+    </Text>
+    <Column gap="8">
+      <Row gap="8" horizontal="start" vertical="center">
+        <Icon name="checkCircle" size="s" onBackground="brand-medium" />
+        <Text variant="body-default-s" onBackground="neutral-weak">**WHMCS 8.0 or later**</Text>
+      </Row>
+      <Row gap="8" horizontal="start" vertical="center">
+        <Icon name="checkCircle" size="s" onBackground="brand-medium" />
+        <Text variant="body-default-s" onBackground="neutral-weak">**PHP 7.4** or **PHP 8.x** (8.0, 8.1, 8.2, 8.3)</Text>
+      </Row>
+      <Row gap="8" horizontal="start" vertical="center">
+        <Icon name="checkCircle" size="s" onBackground="brand-medium" />
+        <Text variant="body-default-s" onBackground="neutral-weak">**HTTPS enabled** (SSL certificate installed and active)</Text>
+      </Row>
+      <Row gap="8" horizontal="start" vertical="center">
+        <Icon name="checkCircle" size="s" onBackground="brand-medium" />
+        <Text variant="body-default-s" onBackground="neutral-weak">Compatible hosting: cPanel, Plesk, DirectAdmin, or custom servers</Text>
+      </Row>
+    </Column>
+  </Column>
+</Card>
+
+<Card padding="16" radius="m" background="warning-alpha-weak" border="warning-alpha-medium" fillWidth marginBottom="32">
+  <Row gap="12" horizontal="start" vertical="center">
+    <Icon name="info" size="m" onBackground="warning-medium" />
+    <Column gap="4">
+      <Text variant="label-strong-s" onBackground="warning-strong">Important Notes</Text>
+      <Text variant="body-default-s" onBackground="warning-medium">
+        HTTPS is mandatory for Progressive Web Apps. Backup your WHMCS before installing any new modules.
+      </Text>
+    </Column>
+  </Row>
+</Card>
+
+## Installation Steps
+
+### Step 1: Download PWA Plus Module
+
+<Card padding="20" radius="m" border="neutral-alpha-medium" fillWidth marginBottom="20">
+  <Column gap="12">
+    <Text variant="label-strong-m" onBackground="neutral-strong">Download the Module</Text>
+    <ol style={{paddingLeft: "20px", margin: 0}}>
+      <li>Download the PWA Plus module package from your purchase source</li>
+      <li>Extract the downloaded ZIP file on your local computer</li>
+      <li>You should see a folder named `pwaplus`</li>
+    </ol>
+  </Column>
+</Card>
+
+### Step 2: Upload Module Files
+
+<Card padding="20" radius="m" border="neutral-alpha-medium" fillWidth marginBottom="20">
+  <Column gap="16">
+    <Text variant="label-strong-m" onBackground="neutral-strong">Upload to WHMCS</Text>
+    
+    <Column gap="12">
+      <Text variant="label-default-s" onBackground="neutral-medium">Via FTP/SFTP:</Text>
+      <ol style={{paddingLeft: "20px", margin: 0}}>
+        <li>Connect to your server using FTP/SFTP client (FileZilla, WinSCP, etc.)</li>
+        <li>Navigate to your WHMCS installation directory</li>
+        <li>Go to `/modules/addons/`</li>
+        <li>Upload the entire `pwaplus` folder to this directory</li>
+      </ol>
+    </Column>
+
+    <Column gap="12">
+      <Text variant="label-default-s" onBackground="neutral-medium">Via cPanel File Manager:</Text>
+      <ol style={{paddingLeft: "20px", margin: 0}}>
+        <li>Log into your cPanel</li>
+        <li>Open File Manager</li>
+        <li>Navigate to your WHMCS directory</li>
+        <li>Go to `/modules/addons/`</li>
+        <li>Upload and extract the module ZIP file here</li>
+      </ol>
+    </Column>
+
+    <Card padding="12" radius="s" background="brand-alpha-weak" marginTop="8">
+      <Text variant="label-default-s" onBackground="brand-medium">
+        **Final path should be:** `/path/to/whmcs/modules/addons/pwaplus/`
+      </Text>
+    </Card>
+  </Column>
+</Card>
+
+### Step 3: Activate the Module
+
+<Card padding="20" radius="m" border="neutral-alpha-medium" fillWidth marginBottom="20">
+  <Column gap="12">
+    <Text variant="label-strong-m" onBackground="neutral-strong">Activate in WHMCS</Text>
+    <ol style={{paddingLeft: "20px", margin: 0}}>
+      <li>Log into your **WHMCS Admin Area**</li>
+      <li>Navigate to **Setup > Addon Modules**</li>
+      <li>Find **PWA Plus** in the list of available modules</li>
+      <li>Click the **Activate** button</li>
+      <li>Configure access control if needed (grant access to admin roles)</li>
+    </ol>
+  </Column>
+</Card>
+
+### Step 4: Access Module Configuration
+
+<Card padding="20" radius="m" border="neutral-alpha-medium" fillWidth marginBottom="32">
+  <Column gap="12">
+    <Text variant="label-strong-m" onBackground="neutral-strong">Initial Configuration</Text>
+    <ol style={{paddingLeft: "20px", margin: 0}}>
+      <li>After activation, click **Configure** next to PWA Plus</li>
+      <li>You'll be taken to the PWA Plus settings page</li>
+      <li>Configure your app settings (see [Configuration Guide](/pwa-plus/setup-guide/configuration))</li>
+    </ol>
+  </Column>
+</Card>
+
+## Post-Installation
+
+### Verify Installation
+
+<Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginTop="24" marginBottom="32">
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Icon name="checkCircle" size="m" onBackground="brand-medium" />
+      <Text variant="label-strong-s" onBackground="neutral-strong">Test on Device</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        Visit your WHMCS Client Area on a mobile device or desktop and look for the "Install App" prompt
+      </Text>
+    </Column>
+  </Card>
+
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Icon name="code" size="m" onBackground="brand-medium" />
+      <Text variant="label-strong-s" onBackground="neutral-strong">Check Console</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        Open browser DevTools (F12) and check console for any errors
+      </Text>
+    </Column>
+  </Card>
+</Grid>
+
+### Next Steps
+
+After successful installation:
+
+1. **Configure Settings** - Read the [Configuration Guide](/pwa-plus/setup-guide/configuration) to customize your PWA
+2. **Review Deployment** - Check the [Deployment Guide](/pwa-plus/setup-guide/deployment) for production best practices
+3. **Share with Users** - Distribute the [Client Guide](/pwa-plus/user-guides/client-guide) to help users install the app
