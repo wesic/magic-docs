@@ -192,7 +192,14 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
     }
     
     // Handle top-level pages first (pages without a section)
-    const topLevelPages = allPages.filter(page => !page.slug.includes('/'));
+    // But exclude pages that are section indexes (pwa-plus, phonepe, etc.)
+    const topLevelPages = allPages.filter(page => {
+      if (page.slug.includes('/')) return false;
+      // Check if this slug matches a section name (indicating it's a section index)
+      const isSectionIndex = rootMetaData.pages?.[page.slug] !== undefined && 
+                             allPages.some(p => p.slug.startsWith(page.slug + '/'));
+      return !isSectionIndex;
+    });
     
     // Sort top-level pages based on meta.json order
     const sortedTopLevelPages = topLevelPages.sort((a, b) => {
@@ -224,6 +231,17 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
           sectionMap.set(section, []);
         }
         sectionMap.get(section)!.push(page);
+      } else {
+        // Check if this is a section index page
+        const isSectionIndex = rootMetaData.pages?.[page.slug] !== undefined && 
+                               allPages.some(p => p.slug.startsWith(page.slug + '/'));
+        if (isSectionIndex) {
+          // Treat it as belonging to its own section
+          if (!sectionMap.has(page.slug)) {
+            sectionMap.set(page.slug, []);
+          }
+          sectionMap.get(page.slug)!.push(page);
+        }
       }
     });
     
@@ -261,8 +279,11 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
       // Group pages by subfolder within the section
       const folderMap = new Map<string, Post[]>();
       
-      // First, identify all direct children of the section (no additional slashes)
+      // First, identify all direct children of the section (no additional slashes OR section index)
       const directChildren = pages.filter(page => {
+        // Include section index page (e.g., 'pwa-plus')
+        if (page.slug === section) return true;
+        
         const pathParts = page.slug.split('/');
         return pathParts.length === 2; // section/page.mdx format
       });
@@ -274,6 +295,9 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
       
       // Then group the nested pages by their immediate subfolder
       pages.forEach(page => {
+        // Skip the section index page as it's already in directChildren
+        if (page.slug === section) return;
+        
         const pathParts = page.slug.split('/');
         if (pathParts.length > 2) { // It's in a subfolder
           const folder = pathParts[1]; // Get the subfolder name
