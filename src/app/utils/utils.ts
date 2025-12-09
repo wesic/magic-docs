@@ -392,19 +392,11 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
           const prevParts = prevPage.slug.split('/');
           const prevSection = prevParts[0];
           
-          // If previous page is from a different section, set it to null
+          // Only set to null if it's from a completely different section
           if (prevSection !== currentSection) {
             prevPage = null;
-          } else if (currentParts.length > 2 && prevParts.length > 2) {
-            // If both are in nested folders, check if they're in the same folder
-            if (currentParts[1] !== prevParts[1]) {
-              // If they're in different folders within the same section, set prevPage to null
-              prevPage = null;
-            }
-          } else if (currentParts.length > 2 && prevParts.length === 2) {
-            // If current page is in a nested folder but prev is direct child of section
-            prevPage = null;
           }
+          // Allow navigation across subfolders within the same section
         }
       }
       
@@ -417,19 +409,11 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
           const nextParts = nextPage.slug.split('/');
           const nextSection = nextParts[0];
           
-          // If next page is from a different section, set it to null
+          // Only set to null if it's from a completely different section
           if (nextSection !== currentSection) {
             nextPage = null;
-          } else if (currentParts.length > 2 && nextParts.length > 2) {
-            // If both are in nested folders, check if they're in the same folder
-            if (currentParts[1] !== nextParts[1]) {
-              // If they're in different folders within the same section, set nextPage to null
-              nextPage = null;
-            }
-          } else if (currentParts.length === 2 && nextParts.length > 2) {
-            // If current page is direct child of section but next is in a nested folder
-            nextPage = null;
           }
+          // Allow navigation across subfolders within the same section
         }
       }
     }
