@@ -1,0 +1,261 @@
+---
+title: "Merchant Guide"
+description: "Complete guide for merchants using PhonePe Payment Gateway"
+updatedAt: "2024-12-09"
+summary: "Comprehensive guide covering all aspects of managing PhonePe payments as a merchant"
+navLabel: "Merchant Guide"
+navIcon: "briefcase"
+---
+
+# Merchant Guide
+
+This comprehensive guide covers all aspects of managing PhonePe payments as a merchant.
+
+## Getting Started as a Merchant
+
+### Account Setup
+
+To use PhonePe Payment Gateway with your WHMCS installation:
+
+1. Ensure PhonePe module is installed and activated
+2. Configure your Merchant ID and API Key
+3. Set your preferred payment methods
+4. Test with development environment first
+
+### Your Dashboard
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Access your payment dashboard through WHMCS Admin Panel:
+</Text>
+
+- Navigate to Orders → Payments
+- View all PhonePe transactions
+- Filter and search transactions
+- Access transaction details and history
+
+## Payment Processing
+
+### Invoice Payment Flow
+
+<Card padding="24" radius="l" border="neutral-alpha-medium" marginBottom="24">
+  <Column gap="16">
+    <Text variant="heading-strong-m" onBackground="neutral-strong">When customers pay an invoice through PhonePe:</Text>
+    <Column gap="10">
+      <Row gap="12" horizontal="start" vertical="center">
+        <Text variant="heading-strong-l" onBackground="brand-medium">1</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">Customer clicks "Pay Now" on invoice</Text>
+      </Row>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Text variant="heading-strong-l" onBackground="brand-medium">2</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">Redirected to PhonePe payment page</Text>
+      </Row>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Text variant="heading-strong-l" onBackground="brand-medium">3</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">Customer selects payment method</Text>
+      </Row>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Text variant="heading-strong-l" onBackground="brand-medium">4</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">Payment is processed by PhonePe</Text>
+      </Row>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Text variant="heading-strong-l" onBackground="brand-medium">5</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">Confirmation is sent to your WHMCS system</Text>
+      </Row>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Text variant="heading-strong-l" onBackground="brand-medium">6</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">Invoice automatically marked as paid</Text>
+      </Row>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Text variant="heading-strong-l" onBackground="brand-medium">7</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">Customer receives payment confirmation email</Text>
+      </Row>
+    </Column>
+  </Column>
+</Card>
+
+### Payment Methods Available
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Your customers can pay using:
+</Text>
+
+<Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginBottom="32">
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Icon name="smartphone" size="l" onBackground="brand-medium" />
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Digital Payment Methods</Text>
+      <Column gap="6">
+        <Text variant="body-default-s" onBackground="neutral-weak">• UPI (Unified Payments Interface)</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Linked Bank Accounts</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Digital Wallets</Text>
+      </Column>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Icon name="creditCard" size="l" onBackground="brand-medium" />
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Traditional Methods</Text>
+      <Column gap="6">
+        <Text variant="body-default-s" onBackground="neutral-weak">• Net Banking</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Debit Cards</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Credit Cards</Text>
+      </Column>
+    </Column>
+  </Card>
+</Grid>
+
+## Transaction Management
+
+### View All Transactions
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Access comprehensive transaction history:
+</Text>
+
+1. Go to Orders → Payments in WHMCS
+2. Filter by PhonePe gateway
+3. View transaction list with details
+
+### Search and Filter
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Find specific transactions easily:
+</Text>
+
+**Search Options:**
+- By Transaction ID
+- By Customer Name
+- By Invoice Number
+- By Amount
+- By Date Range
+
+**Filter Options:**
+- Payment Status (Success/Failed/Pending)
+- Payment Method
+- Date Range
+- Amount Range
+- Specific customer
+
+## Settlement and Payouts
+
+### Settlement Process
+
+<Column gap="10" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">1. Customer makes payment through PhonePe</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">2. Payment is processed and confirmed</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">3. Settlement is prepared based on your schedule</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">4. Funds transferred to your bank account</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">5. Settlement report generated</Text>
+</Column>
+
+### Settlement Schedule
+
+<Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginBottom="32">
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Standard Settlement</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        T+2 (within 2-3 business days)
+      </Text>
+    </Column>
+  </Card>
+  
+  <Card padding="20" radius="m" border="brand-alpha-medium" background="brand-alpha-weak">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Instant Settlement</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        Available with premium plan
+      </Text>
+    </Column>
+  </Card>
+</Grid>
+
+## Refund Management
+
+### Processing Refunds
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+How to refund customer payments:
+</Text>
+
+<Column gap="10" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">1. Go to Orders → Payments</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">2. Find the transaction to refund</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">3. Click "Refund" button</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">4. Enter refund amount (full or partial)</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">5. Add refund reason/note</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">6. Click "Process Refund"</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">7. Confirmation is sent to customer</Text>
+</Column>
+
+### Refund Processing Time
+
+<Grid fillWidth gap="16" columns="4" s={{columns: 1}} marginBottom="32">
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Initiation</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Immediate (same day)</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Processing</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">1-3 business days</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Receipt</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">3-5 business days</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="brand-alpha-medium" background="brand-alpha-weak">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Instant Refund</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Premium plans</Text>
+    </Column>
+  </Card>
+</Grid>
+
+## Best Practices
+
+### Session Management
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Ensure uninterrupted payment processing:
+</Text>
+
+- No logout issues during payment processing
+- Built-in session management prevents interruptions
+- Customers remain logged in through checkout
+- Secure session handling protects user data
+
+### Payment Security
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Maintain secure payment operations:
+</Text>
+
+- Keep PhonePe credentials confidential
+- Use strong passwords
+- Enable two-factor authentication
+- Regularly update WHMCS
+- Monitor for suspicious activity
+
+### Customer Experience
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Optimize for better results:
+</Text>
+
+- Keep checkout process simple
+- Display PhonePe clearly as option
+- Provide payment confirmation quickly
+- Respond to payment issues promptly
+- Maintain transparent fee information
+
+For further assistance, visit [Support](/phonepe/support-maintenance/support) or [Troubleshooting](/phonepe/support-maintenance/troubleshooting).

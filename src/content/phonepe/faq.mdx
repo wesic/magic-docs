@@ -1,0 +1,311 @@
+---
+title: "FAQ"
+description: "Frequently asked questions about PhonePe Payment Gateway"
+updatedAt: "2024-12-09"
+summary: "Find answers to common questions about PhonePe Payment Gateway for WHMCS"
+navLabel: "FAQ"
+navIcon: "helpCircle"
+---
+
+# Frequently Asked Questions
+
+## General Questions
+
+<Accordion title="What is PhonePe Payment Gateway?">
+PhonePe Payment Gateway is a secure, reliable payment processing solution that integrates with WHMCS to accept online payments from your customers. It supports multiple payment methods including UPI, Net Banking, Debit/Credit Cards, and Digital Wallets.
+</Accordion>
+
+<Accordion title="Is PhonePe Payment Gateway secure?">
+Yes, PhonePe uses bank-grade encryption, PCI-DSS Level 1 compliance, and industry-standard security protocols. Your customer data and transactions are fully protected.
+</Accordion>
+
+<Accordion title="What payment methods are supported?">
+PhonePe Payment Gateway supports:
+- UPI (Unified Payments Interface)
+- Net Banking
+- Debit Cards
+- Credit Cards
+- Digital Wallets
+- Other payment methods available through PhonePe
+</Accordion>
+
+<Accordion title="Can I use PhonePe with my current WHMCS installation?">
+Yes, PhonePe Payment Gateway is compatible with WHMCS version 8.0 and higher. Check the [Installation Guide](/phonepe/setup-guide/installation) for system requirements.
+</Accordion>
+
+<Accordion title="What currencies does PhonePe support?">
+PhonePe primarily supports Indian Rupee (INR). For multi-currency support, check with PhonePe Business Account for availability.
+</Accordion>
+
+<Accordion title="Is there a transaction limit?">
+PhonePe has minimum and maximum transaction limits. Defaults are set during configuration, but you can adjust them based on your needs and PhonePe merchant account limits.
+</Accordion>
+
+## Installation and Setup
+
+<Accordion title="How long does installation take?">
+Installation typically takes 15-30 minutes depending on your server and technical experience. Follow the [Installation Guide](/phonepe/setup-guide/installation) for step-by-step instructions.
+</Accordion>
+
+<Accordion title="Do I need technical knowledge to install?">
+Basic server knowledge is helpful but not required. The installation process is straightforward and documented. If you need help, [contact Support](/phonepe/support-maintenance/support).
+</Accordion>
+
+<Accordion title="What files need to be uploaded?">
+Only the PhonePe module folder needs to be uploaded to `/modules/gateways/` on your server. No additional files are required.
+</Accordion>
+
+<Accordion title="How do I get my Merchant ID and API Key?">
+Log in to your PhonePe Business Account and navigate to Settings → API Credentials. Your Merchant ID and API Key will be displayed there.
+</Accordion>
+
+<Accordion title="Can I use the same credentials for multiple WHMCS installations?">
+Yes, but it's recommended to use separate merchant accounts for each installation for better organization and reporting.
+</Accordion>
+
+<Accordion title="What if installation fails?">
+Check the [Troubleshooting Guide](/phonepe/support-maintenance/troubleshooting) for solutions. Common issues include incorrect file permissions or wrong upload directory.
+</Accordion>
+
+## Configuration and Settings
+
+<Accordion title="What's the difference between Development and Production environment?">
+**Development**: For testing without real transactions. Uses test credentials from PhonePe.
+
+**Production**: For live transactions. Uses your real merchant credentials and processes actual customer payments.
+
+Always test thoroughly in Development before switching to Production.
+</Accordion>
+
+<Accordion title="What testing options are available?">
+We provide multiple testing modes:
+- **Test Mode**: Simulate payments during setup without processing real transactions
+- **Live Test Mode**: Test live payments without recording test transactions on invoices
+- **Live Mode**: Process real transactions in production environment
+</Accordion>
+
+<Accordion title="How do I configure the callback URL?">
+The callback URL is provided in WHMCS PhonePe settings. Copy it and add to your PhonePe Business Account webhook settings. This allows PhonePe to notify WHMCS of payment status.
+</Accordion>
+
+<Accordion title="Can I customize the payment gateway name?">
+Yes, PhonePe Payment Gateway allows you to customize the payment gateway display name in the checkout process. Personalize how PhonePe appears to your customers to enhance your branding.
+</Accordion>
+
+<Accordion title="What fees does PhonePe charge?">
+PhonePe charges transaction processing fees based on your merchant plan. Check with PhonePe Business Account or contact our [Support](/phonepe/support-maintenance/support) for details.
+</Accordion>
+
+<Accordion title="Can I accept partial payments?">
+Yes, this is configured in the settings. Clients can make partial payments towards invoices if enabled.
+</Accordion>
+
+<Accordion title="Can I add custom processing fees?">
+Yes, the PhonePe Payment Gateway Module includes a Custom Processing Fee feature. You can add configurable processing fees to PhonePe transactions to offset payment gateway charges. Set the fee as a percentage or fixed amount per transaction.
+</Accordion>
+
+## Payment Processing
+
+<Accordion title="How long does payment processing take?">
+Most payments process instantly. Some payment methods may take 1-2 minutes. Webhook confirmation usually arrives within 5-10 seconds.
+</Accordion>
+
+<Accordion title="What happens if a payment fails?">
+The customer is notified of the failure and can retry using same or different payment method. You can also manually mark invoice as paid if payment was received through alternative means.
+</Accordion>
+
+<Accordion title="Can customers save their payment method?">
+Yes, PhonePe allows customers to save payment methods for future transactions for a faster checkout experience.
+</Accordion>
+
+<Accordion title="What happens to the invoice after successful payment?">
+The invoice is automatically marked as paid in WHMCS. If services are automated, they are activated immediately.
+</Accordion>
+
+<Accordion title="Can I refund a payment?">
+Yes, one of the key features is the ability to initiate and process refunds directly from the WHMCS admin panel without needing to manually access the PhonePe Dashboard. You can process full or partial refunds through WHMCS.
+</Accordion>
+
+<Accordion title="How long does a refund take?">
+Refunds typically process within 1-3 business days. The customer will see the refund within 3-5 business days depending on their bank.
+</Accordion>
+
+<Accordion title="What if a customer disputes a charge?">
+Review the transaction details in WHMCS. If valid, process a refund. Contact [Support](/phonepe/support-maintenance/support) for complex disputes.
+</Accordion>
+
+## Webhook and Callbacks
+
+<Accordion title="What is a webhook?">
+A webhook is an automatic notification from PhonePe to your WHMCS system confirming payment status. It ensures invoices are updated even if the customer closes the browser.
+</Accordion>
+
+<Accordion title="Why isn't my webhook working?">
+Common causes:
+- Callback URL not accessible
+- SSL certificate invalid
+- Firewall blocking requests
+- Webhook not configured in PhonePe account
+
+Check the [Troubleshooting Guide](/phonepe/support-maintenance/troubleshooting) for solutions.
+</Accordion>
+
+<Accordion title="Can I test webhooks?">
+Yes, PhonePe Business Account dashboard allows you to send test webhooks. Test before enabling in production.
+</Accordion>
+
+<Accordion title="What if a webhook fails?">
+PhonePe retries failed webhooks. If still failing, you can manually mark invoice as paid after verifying payment in PhonePe.
+</Accordion>
+
+<Accordion title="How many webhooks are sent per transaction?">
+Typically one webhook per transaction status change. You may receive multiple webhooks if status changes (e.g., Pending → Success).
+</Accordion>
+
+## Settlement and Reporting
+
+<Accordion title="When does settlement happen?">
+Standard settlement is T+2 (within 2-3 business days). Instant settlement available with premium plans. Check configuration for your settlement schedule.
+</Accordion>
+
+<Accordion title="Where can I view settlement details?">
+In WHMCS PhonePe settings, go to "Settlement Reports" tab. You can also view details in PhonePe Business Account.
+</Accordion>
+
+<Accordion title="What fees are deducted from settlement?">
+PhonePe charges transaction processing fees. These are deducted from your settlement amount. View breakdown in settlement reports.
+</Accordion>
+
+<Accordion title="Can I export transaction history?">
+Yes, WHMCS allows you to export transactions in various formats (CSV, PDF, Excel) for record-keeping and accounting.
+</Accordion>
+
+<Accordion title="How do I reconcile my transactions?">
+Download transaction export and settlement report. Match transactions to settlements and verify amounts. Document in your accounting system.
+</Accordion>
+
+<Accordion title="What happens if a settlement fails?">
+PhonePe will retry the settlement. If still failing, check your bank account details in merchant account. Contact PhonePe support if issue persists.
+</Accordion>
+
+## Security and Compliance
+
+<Accordion title="Is my data encrypted?">
+Yes, all data is encrypted using AES-256 encryption. Customer payment data is never stored locally.
+</Accordion>
+
+<Accordion title="What compliance standards does PhonePe meet?">
+PhonePe is PCI-DSS Level 1 compliant and meets all major security and data protection standards.
+</Accordion>
+
+<Accordion title="Can I see what data is being collected?">
+Yes, you can review our data handling practices in the configuration guide. Customer payment details are handled by PhonePe securely.
+</Accordion>
+
+<Accordion title="How often are security audits performed?">
+Security audits are performed regularly (at least quarterly) and more frequently as needed.
+</Accordion>
+
+<Accordion title="What should I do if I suspect fraud?">
+Contact [Support](/phonepe/support-maintenance/support) immediately with transaction details. PhonePe has fraud detection systems that analyze suspicious patterns.
+</Accordion>
+
+## Troubleshooting
+
+<Accordion title="Payment fails with 'Invalid Credentials' error?">
+Verify your Merchant ID and API Key in WHMCS settings. Ensure you're using credentials matching the selected environment (Development/Production).
+</Accordion>
+
+<Accordion title="Invoices not updating after payment?">
+Check webhook is configured correctly. Review WHMCS logs for errors. Test webhook delivery from PhonePe dashboard.
+</Accordion>
+
+<Accordion title="Customer receiving duplicate charges?">
+Check PhonePe transaction history to verify if actually charged twice. If so, process refund for duplicate charge immediately.
+</Accordion>
+
+<Accordion title="High transaction failure rate?">
+Check server logs and PhonePe status. Verify callback URL is accessible. Monitor system resources (CPU, RAM, Disk). Contact support if continues.
+</Accordion>
+
+<Accordion title="Payment takes very long?">
+This may be network or server issue. Check PhonePe status page. Advise customer to wait and not refresh. Try alternative payment method.
+</Accordion>
+
+<Accordion title="Why am I experiencing logouts during payment?">
+The PhonePe Payment Gateway Module is built with no logout issues - it includes uninterrupted session management to prevent unexpected logouts during payment processing. If you experience this, contact support immediately.
+
+For more troubleshooting, visit [Troubleshooting Guide](/phonepe/support-maintenance/troubleshooting).
+</Accordion>
+
+## Technical Questions
+
+<Accordion title="What is the API response time?">
+Average API response time is under 1 second. PhonePe maintains 99.9% uptime.
+</Accordion>
+
+<Accordion title="Can I test in production?">
+Not recommended. Use Development environment for testing. Only enable Production when ready for live transactions.
+</Accordion>
+
+<Accordion title="What PHP extensions are required?">
+- cURL extension
+- OpenSSL extension
+- JSON extension (usually default)
+</Accordion>
+
+<Accordion title="Does PhonePe work with SSL?">
+Yes, SSL is required for security. Ensure your WHMCS installation has valid SSL certificate installed.
+</Accordion>
+
+<Accordion title="Can I use PhonePe with API integrations?">
+Yes, PhonePe provides API access for custom integrations. Contact [Support](/phonepe/support-maintenance/support) for API documentation.
+</Accordion>
+
+<Accordion title="How do I enable debug logging?">
+In WHMCS Settings → Tools & Utilities, set "Debug Log" to "On". Review logs at `/logs/` directory for troubleshooting.
+</Accordion>
+
+## Support and Updates
+
+<Accordion title="How do I get support?">
+Contact us through:
+- **Email**: support@sapphive.com
+- **Support Portal**: https://sapphive.com/supporttickets.php
+- **Twitter/X**: https://x.com/thesapphive
+- **Facebook**: https://facebook.com/sapphive
+- **Instagram**: https://www.instagram.com/sapphive.official
+
+Response time varies by urgency (2-48 hours).
+</Accordion>
+
+<Accordion title="How often are updates released?">
+- Security patches: As needed
+- Maintenance releases: Monthly
+- Feature releases: Quarterly
+- Major versions: Annually
+</Accordion>
+
+<Accordion title="How do I update the module?">
+Back up your installation, download latest version, upload files, clear cache, and test. Check [Deployment Guide](/phonepe/setup-guide/deployment) for detailed instructions.
+</Accordion>
+
+<Accordion title="What happens to old versions?">
+Old versions receive security patches for 12 months. After that, upgrade to current version for continued support.
+</Accordion>
+
+<Accordion title="Is there a changelog?">
+Yes, view complete [Changelog](/phonepe/support-maintenance/changelog) for all version history and changes.
+</Accordion>
+
+## Getting Help
+
+Still have questions? Contact our support team:
+
+- **Email**: support@sapphive.com
+- **Support Portal**: https://sapphive.com/supporttickets.php
+- **Twitter/X**: https://x.com/thesapphive
+- **Facebook**: https://facebook.com/sapphive
+- **Instagram**: https://www.instagram.com/sapphive.official
+
+We're here to help!

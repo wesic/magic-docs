@@ -1,0 +1,380 @@
+---
+title: "Configuration"
+description: "Complete configuration guide for PhonePe Payment Gateway"
+updatedAt: "2024-12-09"
+summary: "Comprehensive guide covering all configuration options for PhonePe Payment Gateway in WHMCS"
+navLabel: "Configuration"
+navIcon: "settings"
+---
+
+# Configuration Guide
+
+This guide covers all configuration options for PhonePe Payment Gateway in WHMCS.
+
+## Basic Configuration
+
+<Grid fillWidth gap="20" columns="2" s={{columns: 1}} marginTop="24" marginBottom="32">
+  <Card padding="24" radius="l" shadow="s" border="neutral-alpha-medium" fillWidth>
+    <Column gap="16" fillWidth>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Icon name="key" size="l" onBackground="brand-medium" />
+        <Text variant="heading-strong-m" onBackground="neutral-strong">Merchant ID</Text>
+      </Row>
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Your unique merchant identifier provided by PhonePe.
+      </Text>
+      <Column gap="8" paddingTop="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Where to find:</strong> PhonePe Business Account → API Settings → Merchant ID
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Format:</strong> Alphanumeric string
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Required:</strong> Yes
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Impact:</strong> All transactions are associated with this ID
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="24" radius="l" shadow="s" border="neutral-alpha-medium" fillWidth>
+    <Column gap="16" fillWidth>
+      <Row gap="12" horizontal="start" vertical="center">
+        <Icon name="lock" size="l" onBackground="brand-medium" />
+        <Text variant="heading-strong-m" onBackground="neutral-strong">API Key</Text>
+      </Row>
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Secret key for authenticating requests to PhonePe servers.
+      </Text>
+      <Column gap="8" paddingTop="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Where to find:</strong> PhonePe Business Account → API Settings → API Key
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Format:</strong> Alphanumeric string
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Security:</strong> Treat as confidential, never share publicly
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Rotation:</strong> Change regularly for security best practices
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+</Grid>
+
+## Environment Selection
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="16">
+Select the operational environment for your gateway.
+</Text>
+
+<Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginTop="16" marginBottom="32">
+  <Card padding="20" radius="m" border="brand-alpha-medium" background="brand-alpha-weak">
+    <Column gap="12">
+      <Text variant="heading-strong-m" onBackground="neutral-strong">Development</Text>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Used for testing payments
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Does not process real transactions
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Free to use with test credentials
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Recommended for initial setup
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="20" radius="m" border="accent-alpha-medium" background="accent-alpha-weak">
+    <Column gap="12">
+      <Text variant="heading-strong-m" onBackground="neutral-strong">Production</Text>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Processes real customer payments
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Requires live PhonePe credentials
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Subject to transaction fees
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Enable only after thorough testing
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+</Grid>
+
+## Payment Configuration
+
+### Accepted Payment Methods
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Configure which payment methods customers can use through PhonePe:
+</Text>
+
+- UPI (Unified Payments Interface)
+- Linked Bank Accounts
+- Debit Card Payments
+- Credit Card Payments
+- Net Banking
+- Digital Wallets
+
+<Text variant="body-default-s" onBackground="neutral-weak" marginTop="12">
+All payment methods are enabled through PhonePe's interface. Customers select their preferred method during checkout.
+</Text>
+
+### Transaction Amount Limits
+
+<Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginTop="16" marginBottom="24">
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Minimum Amount</Text>
+      <Column gap="6">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Default:</strong> Based on PhonePe guidelines
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Minimum Allowed:</strong> 1 rupee
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Recommended:</strong> 10 rupees
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Maximum Amount</Text>
+      <Column gap="6">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Default:</strong> Based on PhonePe guidelines
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Maximum Allowed:</strong> Depends on merchant limits
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          <strong>Recommended:</strong> 100,000 rupees per transaction
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+</Grid>
+
+## Advanced Settings
+
+### Webhook Configuration
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Enable real-time payment status updates:
+</Text>
+
+<Card padding="24" radius="l" border="neutral-alpha-medium" marginBottom="24">
+  <Column gap="16">
+    <Text variant="heading-strong-m" onBackground="neutral-strong">Webhook URL</Text>
+    <Text variant="body-default-m" onBackground="neutral-weak">
+      Automatically provided by WHMCS. Copy this URL from WHMCS settings and add to PhonePe merchant account webhook settings.
+    </Text>
+    <Text variant="body-default-s" onBackground="neutral-weak" marginTop="12">
+      <strong>Webhook Events to Enable:</strong>
+    </Text>
+    <Column gap="6">
+      <Text variant="body-default-s" onBackground="neutral-weak">• PAYMENT_SUCCESS</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• PAYMENT_FAILED</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• PAYMENT_PENDING</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• REFUND_SUCCESS</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• REFUND_FAILED</Text>
+    </Column>
+  </Column>
+</Card>
+
+### Customizable Gateway Name
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Personalize the payment gateway display name:
+</Text>
+
+- Customize how PhonePe appears in checkout
+- Change the gateway name for your customers
+- Enhance branding and user experience
+- Useful for organizing multiple WHMCS instances
+
+### Transaction Prefix
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Customize transaction reference prefix:
+</Text>
+
+- Helps identify transactions in your system
+- Default: "PHONEPE_"
+- Example: "PHONEPE_INV_12345"
+- Useful for transaction organization
+
+## Testing Configuration
+
+<Grid fillWidth gap="16" columns="3" s={{columns: 1}} marginTop="24" marginBottom="32">
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Test Mode</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        Simulate payments during setup and testing without processing real transactions. Ideal for initial setup and feature testing.
+      </Text>
+    </Column>
+  </Card>
+
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Live Test Mode</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        Test live payments without recording test transactions on invoices. Maintains clean and accurate invoice data for final testing.
+      </Text>
+    </Column>
+  </Card>
+
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Live Mode</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        Process real transactions in production environment. Full integration with PhonePe for actual customer payments.
+      </Text>
+    </Column>
+  </Card>
+</Grid>
+
+## Security Settings
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="16">
+Configure security options to protect your transactions:
+</Text>
+
+### SSL Verification
+
+- **Enabled**: Recommended (default) - Ensures secure communication
+- **Disabled**: Only for testing with invalid certificates
+- **Setting**: Keep enabled in production
+
+### API Timeout
+
+- **Default**: 20 seconds
+- **Minimum**: 5 seconds
+- **Maximum**: 60 seconds
+- Increase if experiencing timeouts with PhonePe
+
+### Encryption
+
+- **Enabled**: All sensitive data encrypted
+- **Algorithm**: AES-256 (industry standard)
+- **Keys**: Automatically managed by WHMCS
+
+## Notification Settings
+
+### Email Notifications
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Configure customer payment notifications:
+</Text>
+
+**Payment Success Email**
+- Automatically sent to customer
+- Include transaction reference and amount
+- Enable/Disable in settings
+
+**Payment Failed Email**
+- Notifies customer of failed payment
+- Includes retry option
+- Help contact information
+
+### Admin Notifications
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Receive alerts for payment events:
+</Text>
+
+**Transaction Alerts**
+- Enabled: Admin notified of all transactions
+- Large transactions only: Alert for amounts over threshold
+- Disabled: No admin alerts
+
+## Invoice Configuration
+
+### Auto Invoice Generation
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Control automatic invoice processing:
+</Text>
+
+- **On Payment Success**: Invoice automatically marked paid
+- **Manual Verification**: Admin reviews before marking paid
+- **Recommended**: On Payment Success for efficiency
+
+### Overpayment Handling
+
+When customer pays more than invoice amount:
+
+- Create credit on account
+- Refund difference automatically
+- Manual review by admin
+
+### Underpayment Handling
+
+When customer pays less than invoice amount:
+
+- Reject payment (customer must pay full amount)
+- Create partial payment (invoice remains open)
+- Admin review required
+
+## Refund Configuration
+
+### Custom Processing Fee
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Add configurable processing fees to transactions:
+</Text>
+
+**Fee Configuration**
+- Add custom processing fee percentage
+- Offset payment gateway charges
+- Per-transaction customization
+- Gateway-specific fee settings
+
+**Fee Application**
+- Applied at checkout
+- Shown to customer before payment
+- Collected with transaction amount
+- Appears on invoice
+
+### Refund Policy
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Set your refund processing policy:
+</Text>
+
+**Refund from WHMCS Dashboard**
+- Initiate refunds directly from WHMCS admin panel
+- No manual PhonePe Dashboard intervention required
+- Automatic processing and tracking
+- Full refund history in WHMCS
+
+## Verification
+
+After configuration:
+
+1. Test with small transaction amount
+2. Verify payment appears in PhonePe dashboard
+3. Check webhook callbacks arrive
+4. Confirm invoice status updates
+5. Test refund process
+6. Review transaction logs
+
+For support with configuration, visit [Support](/phonepe/support-maintenance/support) or [Troubleshooting](/phonepe/support-maintenance/troubleshooting).

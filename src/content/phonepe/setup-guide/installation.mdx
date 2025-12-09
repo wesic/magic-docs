@@ -1,0 +1,261 @@
+---
+title: "Installation"
+description: "Step-by-step installation guide for PhonePe Payment Gateway"
+updatedAt: "2024-12-09"
+summary: "Complete installation guide to set up PhonePe Payment Gateway for WHMCS"
+navLabel: "Installation"
+navIcon: "download"
+---
+
+# Installation Guide
+
+Follow these steps to install and set up PhonePe Payment Gateway for WHMCS.
+
+## System Requirements
+
+Before installation, ensure your system meets the following requirements:
+
+- WHMCS version 8.0 or higher
+- PHP 7.4 or higher
+- cURL extension enabled
+- OpenSSL extension enabled
+- Sufficient server permissions
+
+## Step 1: Download the Module
+
+<Column gap="12" marginTop="16" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    1. Log in to your Sapphire dashboard
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    2. Navigate to Downloads section
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    3. Locate "PhonePe Payment Gateway Module"
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    4. Click Download to get the latest version
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    5. Extract the downloaded file
+  </Text>
+</Column>
+
+## Step 2: Prepare Installation Files
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Open the extracted folder and verify all required files are present:
+</Text>
+
+- `phonepe.php`
+- `lib/` directory with library files
+- `config.php`
+- `templates/` directory
+
+## Step 3: Upload to WHMCS
+
+<Column gap="12" marginTop="16" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    1. Connect to your server via FTP or use your hosting control panel file manager
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    2. Navigate to your WHMCS installation directory
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    3. Go to `modules/gateways/` folder
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    4. Upload the PhonePe gateway folder into `modules/gateways/`
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    5. Ensure file permissions are set to 755 for directories and 644 for files
+  </Text>
+</Column>
+
+## Step 4: Activate the Gateway
+
+<Column gap="12" marginTop="16" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    1. Log in to WHMCS Admin Panel
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    2. Navigate to Settings → Payment Gateways
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    3. Click "All Payment Gateways"
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    4. Locate "PhonePe Payment Gateway" in the list
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    5. Click "Activate" button
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    6. The gateway will now appear in your list of active gateways
+  </Text>
+</Column>
+
+## Step 5: Configure API Credentials
+
+<Card padding="24" radius="l" border="neutral-alpha-medium" marginTop="16" marginBottom="24">
+  <Column gap="16">
+    <Text variant="heading-strong-m" onBackground="neutral-strong">
+      Setting up credentials
+    </Text>
+    <Text variant="body-default-m" onBackground="neutral-weak">
+      From the Payment Gateways page, click the Settings icon next to PhonePe. Enter your PhonePe Merchant ID and API Key from your PhonePe Business Account.
+    </Text>
+    <Column gap="8" paddingTop="8">
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        • Log in to your PhonePe Business Account
+      </Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        • Navigate to API Settings
+      </Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        • Copy your Merchant ID and API Key
+      </Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        • Paste into the WHMCS configuration fields
+      </Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        • Select your environment (Development or Production)
+      </Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">
+        • Click "Save Changes"
+      </Text>
+    </Column>
+  </Column>
+</Card>
+
+## Step 6: Configure Callback URL
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+PhonePe requires a callback URL to send payment notifications:
+</Text>
+
+<Column gap="12" marginTop="16" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    1. In WHMCS PhonePe settings, copy the Callback URL shown
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    2. Log in to your PhonePe Business Account
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    3. Navigate to Webhook Settings
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    4. Add a new webhook endpoint
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    5. Paste the callback URL from WHMCS
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    6. Select "Transaction Status" event type
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    7. Save the webhook configuration
+  </Text>
+</Column>
+
+## Step 7: Set As Default Gateway (Optional)
+
+<Column gap="12" marginTop="16" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    1. Go to Settings → Payment Gateways
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    2. Under "Default Gateway", select PhonePe from dropdown
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    3. Click Save
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    4. This will make PhonePe the default payment option for clients
+  </Text>
+</Column>
+
+## Step 8: Verify Installation
+
+<Column gap="12" marginTop="16" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    1. Go to your client portal
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    2. Attempt to view an unpaid invoice
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    3. Click "Pay Now" button
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    4. You should see PhonePe as a payment option
+  </Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">
+    5. Click on PhonePe to verify the checkout form displays correctly
+  </Text>
+</Column>
+
+## Troubleshooting Installation
+
+<Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginTop="24" marginBottom="32">
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Files Not Uploading</Text>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Check server file permissions
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Ensure FTP connection is stable
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Verify you're uploading to correct directory
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Gateway Not Appearing</Text>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Clear WHMCS cache
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Verify file permissions (755/644)
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Check WHMCS error logs
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="20" radius="m" border="neutral-alpha-medium">
+    <Column gap="12">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Callback URL Issues</Text>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Verify SSL certificate is valid
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Check firewall allows PhonePe IPs
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          • Test callback URL is publicly accessible
+        </Text>
+      </Column>
+    </Column>
+  </Card>
+</Grid>
+
+## Next Steps
+
+Once installation is complete:
+
+1. Complete [Configuration](/phonepe/setup-guide/configuration) to customize settings
+2. Review [Merchant Guide](/phonepe/guides/merchant-guide) for best practices
+3. Set up [Support & Maintenance](/phonepe/support-maintenance/support) for ongoing operations
+
+For assistance, contact [Support](/phonepe/support-maintenance/support) or refer to our [Troubleshooting Guide](/phonepe/support-maintenance/troubleshooting).

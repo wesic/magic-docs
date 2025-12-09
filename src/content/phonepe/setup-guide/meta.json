@@ -1,0 +1,7 @@
+{
+  "pages": {
+    "installation": 1,
+    "configuration": 2,
+    "deployment": 3
+  }
+}

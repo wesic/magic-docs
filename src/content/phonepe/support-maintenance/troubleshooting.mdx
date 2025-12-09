@@ -1,0 +1,298 @@
+---
+title: "Troubleshooting"
+description: "Troubleshooting guide for PhonePe Payment Gateway issues"
+updatedAt: "2024-12-09"
+summary: "Common issues and solutions for PhonePe Payment Gateway"
+navLabel: "Troubleshooting"
+navIcon: "tool"
+---
+
+# Troubleshooting Guide
+
+This guide helps resolve common issues with PhonePe Payment Gateway.
+
+## Installation Issues
+
+<Accordion title="Module Not Appearing After Upload">
+**Problem**: PhonePe gateway doesn't appear in payment gateways list.
+
+**Causes:**
+- Files uploaded to wrong directory
+- Incorrect file permissions
+- WHMCS cache not cleared
+- PHP errors in module files
+
+**Solution:**
+1. Verify files uploaded to `/modules/gateways/phonepe/`
+2. Check file permissions (755 for directories, 644 for files)
+3. Clear WHMCS cache: Settings → Utilities → System Cache
+4. Check WHMCS error log for PHP errors
+5. Restart web server
+6. Try logging out and back in
+</Accordion>
+
+<Accordion title="Gateway Activates But Not Working">
+**Problem**: Gateway appears but payments don't process.
+
+**Causes:**
+- Credentials not configured
+- Callback URL not set
+- PHP extensions not enabled
+- Network connectivity issue
+
+**Solution:**
+1. Go to Payment Gateways → PhonePe Settings
+2. Verify Merchant ID entered
+3. Verify API Key entered
+4. Copy Callback URL and add to PhonePe webhook
+5. Check PHP extensions: `php -m | grep -i curl`
+6. Verify your domain is publicly accessible
+</Accordion>
+
+## Configuration Issues
+
+<Accordion title="Invalid Merchant ID Error">
+**Problem**: Error message "Invalid Merchant ID" during configuration.
+
+**Causes:**
+- Merchant ID copied incorrectly
+- Extra spaces in Merchant ID
+- Using wrong environment (Dev ID in Production)
+- Merchant ID not yet activated
+
+**Solution:**
+1. Log in to PhonePe Business Account
+2. Go to Settings → API Credentials
+3. Copy Merchant ID carefully (no spaces)
+4. Verify environment matches (Development/Production)
+5. Contact PhonePe if ID not activated
+6. Clear browser cache and retry
+</Accordion>
+
+<Accordion title="API Key Not Accepted">
+**Problem**: "Invalid API Key" error message.
+
+**Causes:**
+- API Key copied incorrectly
+- Extra spaces or special characters
+- Using development key in production
+- Key expired or regenerated
+
+**Solution:**
+1. Verify you copied full API Key
+2. Check for leading/trailing spaces
+3. Confirm using correct environment key
+4. Log in to PhonePe to verify key is active
+5. Regenerate key if needed
+6. Test with small transaction
+</Accordion>
+
+## Payment Processing Issues
+
+<Accordion title="Payments Not Processing">
+**Problem**: Customer clicks pay but nothing happens.
+
+**Causes:**
+- JavaScript errors
+- Callback URL not accessible
+- Network connectivity issue
+- Webhook not configured
+- PhonePe service down
+
+**Solution:**
+1. Check browser console for JavaScript errors (F12)
+2. Test callback URL is publicly accessible
+3. Ping PhonePe server: `ping api.phonepe.com`
+4. Verify webhook is configured in PhonePe account
+5. Check WHMCS error logs
+6. Try different browser
+7. Check PhonePe status page
+</Accordion>
+
+<Accordion title="Transaction Times Out">
+**Problem**: Payment process takes too long or times out.
+
+**Causes:**
+- Slow network connection
+- Server processing delay
+- PhonePe service slow
+- Firewall blocking requests
+- Timeout settings too short
+
+**Solution:**
+1. Check internet connection speed
+2. Review server resource usage (CPU, RAM, Disk)
+3. Check PhonePe status for slowness
+4. Verify firewall allows PhonePe IP addresses
+5. Increase timeout settings in configuration
+6. Test on different network
+7. Contact PhonePe support
+</Accordion>
+
+<Accordion title="Payment Successful But Invoice Not Updated">
+**Problem**: Customer paid but invoice still shows unpaid.
+
+**Causes:**
+- Webhook callback not received
+- WHMCS webhook handler error
+- Transaction ID mismatch
+- Database update failed
+- Cron job not running
+
+**Solution:**
+1. Check WHMCS webhook logs
+2. Verify callback URL is correct
+3. Test webhook from PhonePe dashboard
+4. Check WHMCS error logs for SQL errors
+5. Manually update invoice if transaction verified
+6. Run WHMCS cron manually: Access `/cron.php`
+7. Verify cron job scheduled properly
+</Accordion>
+
+## Webhook and Callback Issues
+
+<Accordion title="Webhooks Not Being Received">
+**Problem**: Webhook callbacks not arriving in WHMCS.
+
+**Causes:**
+- Callback URL incorrect
+- Firewall blocking PhonePe IPs
+- SSL certificate invalid
+- Webhook not configured in PhonePe
+- Network issue
+
+**Solution:**
+1. Verify callback URL is correct and accessible
+2. Test URL in browser directly
+3. Check firewall allows incoming PhonePe requests
+4. Verify SSL certificate is valid
+5. Add PhonePe IPs to firewall whitelist
+6. Test webhook delivery from PhonePe dashboard
+7. Check server logs for webhook requests
+</Accordion>
+
+<Accordion title="Callback URL Returns Error">
+**Problem**: PhonePe reports "Callback URL Error" or "Invalid Response".
+
+**Causes:**
+- Callback URL not publicly accessible
+- Server returning error status
+- Invalid SSL certificate
+- Firewall rejecting connection
+- Server configuration issue
+
+**Solution:**
+1. Test callback URL from external source
+2. Use online tools to verify URL accessibility
+3. Check SSL certificate validity
+4. Review web server logs for connection attempts
+5. Verify firewall allows connections
+6. Test with curl: `curl -v https://yourdomain.com/callback`
+7. Contact hosting support
+</Accordion>
+
+## Settlement and Refund Issues
+
+<Accordion title="Payments Not Settled">
+**Problem**: Payments received but not settled to bank account.
+
+**Causes:**
+- Settlement schedule not yet reached
+- Settlement failed due to bank issue
+- Merchant account restrictions
+- PhonePe service issue
+
+**Solution:**
+1. Check PhonePe Business Account for settlement status
+2. Verify settlement schedule and next settlement date
+3. Check if settlement shows "Pending" or "Failed"
+4. Verify bank account details are correct
+5. Contact PhonePe support for failed settlements
+6. Check for account restrictions or limits
+</Accordion>
+
+<Accordion title="Refund Processing Fails">
+**Problem**: Refund initiated but fails to process.
+
+**Causes:**
+- Original transaction too old
+- Customer's payment method no longer valid
+- Refund amount exceeds original
+- PhonePe rate limiting
+- Bank processing issue
+
+**Solution:**
+1. Verify refund amount doesn't exceed original payment
+2. Check original transaction date (must be recent enough)
+3. Verify customer's payment method still active
+4. Try refund after 24 hours if just tried
+5. Contact PhonePe support with transaction ID
+6. Process refund through alternative method if needed
+</Accordion>
+
+## Security and Authorization Issues
+
+<Accordion title="'Unauthorized' Error Messages">
+**Problem**: Getting unauthorized errors during payment.
+
+**Causes:**
+- Merchant ID doesn't match
+- API Key invalid
+- Credentials expired
+- Environment mismatch
+- IP restrictions
+
+**Solution:**
+1. Verify Merchant ID and API Key are correct
+2. Check credentials in PhonePe Business Account
+3. Regenerate credentials if needed
+4. Verify using same environment (Dev/Production)
+5. Check for IP whitelisting restrictions
+6. Clear browser cookies and retry
+</Accordion>
+
+<Accordion title="SSL Certificate Issues">
+**Problem**: Browser warns about SSL certificate or "Not Secure" shows.
+
+**Causes:**
+- SSL certificate not installed
+- Certificate expired
+- Certificate doesn't match domain
+- Mixed content issue
+
+**Solution:**
+1. Install valid SSL certificate for your domain
+2. Verify certificate is not expired
+3. Ensure domain matches certificate
+4. Fix mixed content issues (http/https)
+5. Use online SSL checker to verify
+6. Contact hosting support for SSL help
+</Accordion>
+
+## Getting Help
+
+### Enable Debug Mode
+
+Enable detailed logging:
+
+1. Go to WHMCS Settings → Tools & Utilities
+2. Set "Debug Log" to "On"
+3. Set appropriate debug level
+4. Reproduce the issue
+5. Review logs at `/logs/` directory
+
+### Contacting Support
+
+When contacting support, provide:
+
+- Error message (exact text)
+- Steps to reproduce issue
+- Transaction ID (if applicable)
+- Server error logs
+- WHMCS error logs
+- Browser console errors
+- Screenshots of issue
+
+**Email**: support@sapphive.com
+
+For further assistance, contact [Support](/phonepe/support-maintenance/support).

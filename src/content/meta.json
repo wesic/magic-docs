@@ -2,6 +2,7 @@
   "pages": {
     "get-started": 1,
     "products": 2,
-    "pwa-plus": 3
+    "pwa-plus": 3,
+    "phonepe": 4
   }
 }

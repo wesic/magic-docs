@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "features": 1,
+    "faq": 2,
+    "setup-guide": 3,
+    "guides": 4,
+    "support-maintenance": 5
+  }
+}

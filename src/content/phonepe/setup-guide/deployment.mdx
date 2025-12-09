@@ -1,0 +1,346 @@
+---
+title: "Deployment"
+description: "Production deployment guide for PhonePe Payment Gateway"
+updatedAt: "2024-12-09"
+summary: "Complete guide for deploying PhonePe Payment Gateway to production environment"
+navLabel: "Deployment"
+navIcon: "rocket"
+---
+
+# Deployment Guide
+
+This guide covers deploying PhonePe Payment Gateway to production environment.
+
+## Pre-Deployment Checklist
+
+<Grid fillWidth gap="20" columns="2" s={{columns: 1}} marginTop="24" marginBottom="32">
+  <Card padding="24" radius="l" border="neutral-alpha-medium">
+    <Column gap="16">
+      <Row gap="12" horizontal="start" vertical="center">
+        <Icon name="server" size="l" onBackground="brand-medium" />
+        <Text variant="heading-strong-m" onBackground="neutral-strong">System Requirements</Text>
+      </Row>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">• WHMCS version 8.0+ installed</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• PHP 7.4+ configured</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• cURL and OpenSSL extensions enabled</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• SSL certificate valid and installed</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Database backups current</Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="24" radius="l" border="neutral-alpha-medium">
+    <Column gap="16">
+      <Row gap="12" horizontal="start" vertical="center">
+        <Icon name="package" size="l" onBackground="brand-medium" />
+        <Text variant="heading-strong-m" onBackground="neutral-strong">Module Requirements</Text>
+      </Row>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">• PhonePe module latest version</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• All dependencies installed</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• No conflicts with other modules</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Folder permissions correct (755/644)</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Database tables created</Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="24" radius="l" border="neutral-alpha-medium">
+    <Column gap="16">
+      <Row gap="12" horizontal="start" vertical="center">
+        <Icon name="settings" size="l" onBackground="brand-medium" />
+        <Text variant="heading-strong-m" onBackground="neutral-strong">Configuration</Text>
+      </Row>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">• Merchant ID configured</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• API Key secure and saved</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Callback URL verified</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Webhook configuration complete</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Environment set to Production</Text>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card padding="24" radius="l" border="neutral-alpha-medium">
+    <Column gap="16">
+      <Row gap="12" horizontal="start" vertical="center">
+        <Icon name="checkCircle" size="l" onBackground="brand-medium" />
+        <Text variant="heading-strong-m" onBackground="neutral-strong">Testing Complete</Text>
+      </Row>
+      <Column gap="8">
+        <Text variant="body-default-s" onBackground="neutral-weak">• All features tested in development</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Payment flow verified</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Refund process tested</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Webhook callbacks confirmed</Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">• Security validation complete</Text>
+      </Column>
+    </Column>
+  </Card>
+</Grid>
+
+## Development to Production Migration
+
+### Step 1: Environment Switch
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Switch from development to production:
+</Text>
+
+<Column gap="10" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">1. Log in to WHMCS Admin Panel</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">2. Go to Settings → Payment Gateways</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">3. Click PhonePe Settings</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">4. Change Environment: Development → Production</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">5. Verify all credentials are correct</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">6. Click Save Changes</Text>
+</Column>
+
+### Step 2: Verify Production Credentials
+
+<Card padding="24" radius="l" border="accent-alpha-medium" background="accent-alpha-weak" marginBottom="24">
+  <Column gap="16">
+    <Text variant="heading-strong-m" onBackground="neutral-strong">Credential Verification</Text>
+    <Column gap="8">
+      <Text variant="body-default-s" onBackground="neutral-weak">1. Log in to PhonePe Business Account</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">2. Switch to Production mode</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">3. Copy Production Merchant ID</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">4. Copy Production API Key</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">5. Verify both match WHMCS configuration</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">6. Test with small transaction</Text>
+    </Column>
+  </Column>
+</Card>
+
+### Step 3: Verify Callback Configuration
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Ensure webhooks are production-ready:
+</Text>
+
+- Go to PhonePe Business Account
+- Navigate to Webhook Settings
+- Verify Callback URL points to production domain
+- Test webhook delivery from PhonePe
+- Confirm callbacks are being received
+- Check WHMCS logs for webhook entries
+
+## Production Deployment
+
+### Step 1: Final Backup
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Create complete production backup before deployment:
+</Text>
+
+```bash
+# Backup database
+mysqldump -u username -p whmcs_db > whmcs_backup_$(date +%Y%m%d_%H%M%S).sql
+
+# Backup files
+tar -czf whmcs_files_backup_$(date +%Y%m%d_%H%M%S).tar.gz /path/to/whmcs
+```
+
+### Step 2: Enable Production Mode
+
+<Column gap="10" marginTop="16" marginBottom="24">
+  <Text variant="body-default-m" onBackground="neutral-weak">1. Set PhonePe to Production environment</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">2. Enable production credentials</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">3. Activate payment processing</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">4. Enable customer notifications</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">5. Enable admin alerts</Text>
+  <Text variant="body-default-m" onBackground="neutral-weak">6. Start monitoring systems</Text>
+</Column>
+
+### Step 3: Test First Transaction
+
+<Card padding="24" radius="l" border="brand-alpha-medium" background="brand-alpha-weak" marginBottom="24">
+  <Column gap="16">
+    <Text variant="heading-strong-m" onBackground="neutral-strong">Production Test</Text>
+    <Text variant="body-default-m" onBackground="neutral-weak">
+      Process a test transaction in production:
+    </Text>
+    <Column gap="8">
+      <Text variant="body-default-s" onBackground="neutral-weak">1. Create test invoice for small amount</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">2. Process payment through PhonePe</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">3. Verify payment received and recorded</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">4. Check invoice status updated</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">5. Verify confirmations sent</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">6. Review transaction logs</Text>
+    </Column>
+  </Column>
+</Card>
+
+## Security Deployment
+
+### SSL/TLS Configuration
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Ensure secure communications:
+</Text>
+
+- Install valid SSL certificate
+- Configure HTTPS everywhere
+- Set HTTP to HTTPS redirect
+- Configure security headers
+- Test SSL configuration
+- Verify certificate validity
+
+### API Security
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Protect your PhonePe credentials:
+</Text>
+
+- Store credentials securely
+- Never hardcode sensitive data
+- Use environment variables
+- Restrict file permissions
+- Regular credential rotation
+- Monitor API usage
+
+## Monitoring and Maintenance
+
+### System Monitoring
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="16">
+Monitor production health with these key metrics:
+</Text>
+
+<Grid fillWidth gap="16" columns="3" s={{columns: 1}} marginBottom="32">
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Uptime</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Track system availability percentage</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Response Time</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Monitor API and payment response times</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Success Rate</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Track transaction success percentage</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Error Rates</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Monitor and track error occurrences</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Database Performance</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Track query performance and load</Text>
+    </Column>
+  </Card>
+  
+  <Card padding="16" radius="m" border="neutral-alpha-medium">
+    <Column gap="8">
+      <Text variant="heading-strong-s" onBackground="neutral-strong">Backup Status</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">Verify backup completion daily</Text>
+    </Column>
+  </Card>
+</Grid>
+
+## Troubleshooting Production Issues
+
+### Payment Processing Issues
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+If payments fail in production:
+</Text>
+
+**Diagnosis**
+1. Check transaction logs
+2. Verify PhonePe status page
+3. Review error messages
+4. Check webhook callbacks
+5. Verify network connectivity
+6. Review server logs
+
+**Resolution**
+1. Verify credentials are correct
+2. Check callback URL accessibility
+3. Review firewall rules
+4. Test with different payment method
+5. Contact PhonePe support
+6. Document issue for review
+
+### Rollback Procedure
+
+<Card padding="24" radius="l" border="danger-alpha-medium" background="danger-alpha-weak" marginTop="24" marginBottom="24">
+  <Column gap="16">
+    <Text variant="heading-strong-m" onBackground="neutral-strong">Emergency Rollback</Text>
+    <Text variant="body-default-m" onBackground="neutral-weak">
+      If issues occur after deployment:
+    </Text>
+    <Column gap="8">
+      <Text variant="body-default-s" onBackground="neutral-weak">1. Stop payment processing</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">2. Restore from backup</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">3. Notify customers</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">4. Document issue</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">5. Review what went wrong</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">6. Plan corrective action</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">7. Redeploy with fixes</Text>
+    </Column>
+  </Column>
+</Card>
+
+## Post-Deployment Validation
+
+### Functionality Testing
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Verify all features working:
+</Text>
+
+- Payments processing correctly
+- Invoices updating automatically
+- Emails sending properly
+- Refunds working
+- Webhook callbacks received
+- Transactions logged accurately
+
+### Performance Validation
+
+<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
+Confirm performance standards:
+</Text>
+
+- Page load time < 3 seconds
+- Transaction processing < 5 seconds
+- 99.9% uptime achieved
+- No bottlenecks present
+- Caching working effectively
+- Database queries optimized
+
+## Deployment Checklist
+
+<Card padding="24" radius="l" border="neutral-alpha-medium" marginTop="24" marginBottom="24">
+  <Column gap="16">
+    <Text variant="heading-strong-m" onBackground="neutral-strong">Final Deployment Checklist</Text>
+    <Column gap="8">
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ All backups completed</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ Credentials verified (Production)</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ SSL certificate valid</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ Webhook URL updated to production</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ Environment switched to Production</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ Test transaction successful</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ Monitoring enabled</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ Team notified</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ Documentation updated</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">☐ First-week monitoring scheduled</Text>
+    </Column>
+  </Column>
+</Card>
+
+For deployment support, contact [Support](/phonepe/support-maintenance/support) or see [Troubleshooting](/phonepe/support-maintenance/troubleshooting).
