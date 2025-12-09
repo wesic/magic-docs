@@ -1,7 +1,7 @@
 {
   "title": "PhonePe",
   "pages": {
-    "overview": 1,
+    "index": 1,
     "features": 2,
     "faq": 3,
     "setup-guide": 4,
