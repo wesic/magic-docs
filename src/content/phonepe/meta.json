@@ -1,11 +1,10 @@
 {
   "title": "PhonePe",
   "pages": {
-    "index": 1,
-    "features": 2,
-    "faq": 3,
-    "setup-guide": 4,
-    "guides": 5,
-    "support-maintenance": 6
+    "features": 1,
+    "faq": 2,
+    "setup-guide": 3,
+    "guides": 4,
+    "support-maintenance": 5
   }
 }
