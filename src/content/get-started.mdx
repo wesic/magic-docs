@@ -1,33 +1,135 @@
 ---
-title: "Get Started"
-updatedAt: "2024-03-05"
-summary: "Magic Docs is a modern, MDX-based documentation system built with Once UI."
+title: "Getting Started with Sapphive"
+updatedAt: "2024-12-09"
+summary: "Quick start guide for Sapphive WHMCS modules - Transform your hosting business with modern solutions"
 image: "/images/cover.jpg"
 navLabel: "Quick start"
 navIcon: "rocket"
 ---
 
+Welcome to Sapphive! This guide will help you get started with our WHMCS modules. Whether you're looking to modernize your client experience with Progressive Web Apps or streamline payment processing with PhonePe, Sapphive provides powerful, easy-to-integrate solutions for your hosting business.
+
+## Choose Your Product
+
+Sapphive offers specialized WHMCS modules designed to enhance your hosting business operations. Select the product that best fits your needs:
+
+<Grid fillWidth gap="24" columns="2" s={{columns: 1}} marginTop="24" marginBottom="40">
+  <Card
+    padding="0"
+    radius="l"
+    shadow="m"
+    direction="column"
+    border="neutral-alpha-medium"
+    horizontal="start"
+    fillWidth
+  >
+    <Column fillWidth paddingTop="24" paddingX="20" paddingBottom="20" gap="16" horizontal="start" vertical="between">
+      <Text variant="heading-strong-l" onBackground="neutral-strong">PWA Plus for WHMCS</Text>
+      <Text variant="body-default-s" onBackground="brand-medium" style={{fontStyle: 'italic'}}>Best for: Modern app experience</Text>
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Transform your WHMCS Client and Admin areas into installable Progressive Web Apps with Sapphive PWA Plus.
+      </Text>
+      <Column fillWidth gap="8" paddingTop="8">
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">Works on all major platforms</Text>
+        </Row>
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">Offline support & automatic caching</Text>
+        </Row>
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">No third-party dependencies</Text>
+        </Row>
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">Zero maintenance required</Text>
+        </Row>
+      </Column>
+      <Column fillWidth paddingTop="16">
+        <Button href="/pwa-plus/installation" variant="primary" size="m" data-solid="inverse" radius="l" fillWidth>
+          <Text onBackground="inverse">PWA Plus Installation Guide</Text>
+        </Button>
+      </Column>
+    </Column>
+  </Card>
+
+  <Card
+    padding="0"
+    radius="l"
+    shadow="m"
+    direction="column"
+    border="neutral-alpha-medium"
+    horizontal="start"
+    fillWidth
+  >
+    <Column fillWidth paddingTop="24" paddingX="20" paddingBottom="20" gap="16" horizontal="start" vertical="between">
+      <Text variant="heading-strong-l" onBackground="neutral-strong">PhonePe Payment Gateway</Text>
+      <Text variant="body-default-s" onBackground="brand-medium" style={{fontStyle: 'italic'}}>Best for: PhonePe payments in India</Text>
+      <Text variant="body-default-m" onBackground="neutral-weak">
+        Accept PhonePe payments directly in WHMCS with comprehensive payment processing and reporting.
+      </Text>
+      <Column fillWidth gap="8" paddingTop="8">
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">Seamless WHMCS integration</Text>
+        </Row>
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">Instant settlement processing</Text>
+        </Row>
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">Comprehensive transaction reporting</Text>
+        </Row>
+        <Row gap="8" horizontal="start">
+          <Icon name="checkCircle" size="s" onBackground="neutral-weak" />
+          <Text variant="body-default-s" onBackground="neutral-weak">Secure payment handling</Text>
+        </Row>
+      </Column>
+      <Column fillWidth paddingTop="16">
+        <Button href="/phonepe/installation" variant="primary" size="m" data-solid="inverse" radius="l" fillWidth>
+          <Text onBackground="inverse">PhonePe Installation Guide</Text>
+        </Button>
+      </Column>
+    </Column>
+  </Card>
+</Grid>
 
 
-Magic Docs is a modern, MDX-based documentation system built with Once UI, providing a seamless and intuitive way to create, organize, and present technical documentation. Designed with both developers and end-users in mind, Magic Docs combines the flexibility of Markdown with the power of React components to deliver a rich documentation experience.
+## Installation Process
 
-## Key Features
+All Sapphive modules follow a simple, consistent installation process:
 
-Magic Docs offers a comprehensive set of features that make documentation creation and consumption a breeze:
+1. **Download** - Download your chosen module from Sapphive
+2. **Upload** - Upload the module files to your WHMCS installation
+3. **Activate** - Activate the module in WHMCS Admin Area
+4. **Configure** - Configure the module settings to match your requirements
+5. **Deploy** - Deploy to production and start using
 
-- **MDX Integration**: Write content in Markdown and seamlessly embed React components
-- **Hierarchical Navigation**: Intuitive section-based navigation with custom ordering
-- **Component Showcase**: Interactive examples of Once UI components
-- **Responsive Design**: Perfect viewing experience across all devices
-- **Dark/Light Mode**: Automatic theme switching based on system preferences
-- **Search Functionality**: Powerful command palette for quick content access
-- **SEO Optimization**: Built-in metadata generation for better search engine visibility
-- **Custom Ordering**: Control the exact order of pages using meta.json files
+## System Requirements
 
-## Built with Once UI
+All Sapphive modules require:
 
-Magic Docs leverages the Once UI component system, providing a consistent, accessible, and beautiful interface. For the complete Magic Docs and Once UI documentation, visit [Once UI](https://docs.once-ui.com).
+- WHMCS 8.0 or later
+- PHP 7.4 or PHP 8.x
+- HTTPS enabled (SSL certificate)
+- Compatible server (cPanel, Plesk, DirectAdmin, or custom)
+
+## Explore Our Products
 
 <Grid fillWidth gap="8" columns="2" s={{columns: 1}} marginTop="20">
-  <PageList path={["components"]} padding="16"/>
+  <PageList path={["pwa-plus"]} padding="16"/>
+  <PageList path={["phonepe"]} padding="16"/>
 </Grid>
+
+## Need Help?
+
+- Browse [Products](/products/) to see what's available
+- Check specific product documentation for detailed guides
+- Visit our [Support Center](/pwa-plus/support-maintenance/support/) for FAQ and troubleshooting
+
+---
+
+**What's Next?** Choose your product, follow the installation guide, and deploy to your production environment. Contact support if you need assistance. Happy with Sapphive? Share your experience and help other hosting businesses discover our solutions!

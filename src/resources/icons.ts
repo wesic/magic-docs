@@ -30,6 +30,7 @@ import {
   HiOutlineCube,
   HiOutlineBars3,
   HiOutlineKey,
+  HiOutlineCheckCircle,
 } from "react-icons/hi2";
 
 import { RiVisaLine } from "react-icons/ri";
@@ -75,6 +76,7 @@ export const iconLibrary: Record<string, IconType> = {
   components: HiOutlineCube,
   sidebar: HiOutlineBars3,
   password: HiOutlineKey,
+  checkCircle: HiOutlineCheckCircle,
 };
 
 export type IconLibrary = typeof iconLibrary;

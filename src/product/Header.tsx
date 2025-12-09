@@ -163,29 +163,38 @@ export function Header() {
         left="0"
       />
       <Flex as="header" horizontal="center" position="sticky" top="0" zIndex={9} fillWidth vertical="center" paddingY="12" paddingX="l">
-        <Row maxWidth={layout.header.width} vertical="center" horizontal="between" gap="l">
-          <Row fillWidth vertical="center" gap="8">
+        <Row maxWidth={layout.header.width} vertical="center" horizontal="between" gap="l" fillWidth>
+          <Row vertical="center" gap="16">
             <NavIcon hide m={{hide: false}} onClick={toggleSidebar}/>
             <Logo className="dark-flex" wordmark="/trademark/type-dark.svg" size="s" href="/"/>
             <Logo className="light-flex" wordmark="/trademark/type-light.svg" size="s" href="/"/>
-          </Row>
-          <Kbar hide="m" items={kbar} radius="full" background="neutral-alpha-weak">
-            <Button data-border="rounded" size="s" variant="tertiary" weight="default">
-              <Row vertical="center" gap="16" style={{marginLeft: '-0.5rem'}} paddingRight="8">
-                <Row background="neutral-alpha-medium" paddingX="8" paddingY="4" radius="full" data-scaling="90" textVariant="body-default-xs" onBackground="neutral-medium">{isMac ? 'Cmd' : 'Ctrl'} k</Row>
-                Search docs...
-              </Row>
-            </Button>
-          </Kbar>
-          <Row fillWidth horizontal="end" gap="8" data-border="rounded">
-            <Row s={{hide: true}}>
-              <Button size="s" variant="secondary" href="https://once-ui.com/products">
-                Start building
+            
+            {/* Navigation Links */}
+            <Row gap="4" paddingLeft="12">
+              <Button href="/get-started" size="s" variant="tertiary" weight="default">
+                Get Started
+              </Button>
+              <Button href="/products" size="s" variant="tertiary" weight="default">
+                Products
+              </Button>
+              <Button href="/pwa-plus" size="s" variant="tertiary" weight="default">
+                PWA Plus
+              </Button>
+              <Button href="/phonepe" size="s" variant="tertiary" weight="default">
+                PhonePe
               </Button>
             </Row>
-            <Button href="https://once-ui.com/auth" size="s">
-              Sign up
-            </Button>
+          </Row>
+          
+          <Row horizontal="end" gap="8" vertical="center">
+            <Kbar items={kbar} radius="s" background="neutral-alpha-weak" data-border="conservative">
+              <Button size="s" variant="tertiary" weight="default" data-border="conservative">
+                <Row vertical="center" gap="16" style={{marginLeft: '-0.5rem'}} paddingRight="8">
+                  <Row background="neutral-alpha-medium" paddingX="8" paddingY="4" radius="s" data-border="conservative" data-scaling="90" textVariant="body-default-xs" onBackground="neutral-medium">{isMac ? 'Cmd' : 'Ctrl'} k</Row>
+                  Search docs...
+                </Row>
+              </Button>
+            </Kbar>
           </Row>
         </Row>
       </Flex>
