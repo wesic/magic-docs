@@ -98,10 +98,18 @@ export default function getNavigation(dirPath = path.join(process.cwd(), 'src/co
       // Get children and sort them before returning
       const children = getNavigation(fullPath);
       
+      // Check for order in parent's meta.json pages object
+      let directoryOrder: number | undefined;
+      if (dirMeta?.pages?.[entry.name] !== undefined) {
+        directoryOrder = dirMeta.pages[entry.name];
+      } else {
+        directoryOrder = metaData?.order;
+      }
+      
       const item = {
         slug: entry.name,
         title: metaData?.title || entry.name,
-        order: metaData?.order,
+        order: directoryOrder,
         children: children, // Already sorted by the recursive call
       };
       
