@@ -60,9 +60,14 @@ export function getPages(customPath = ["src", "content"]): Post[] {
         const { data, content } = matter(fileContents);
 
         // Create slug without src/content prefix
-        const slug = path.relative(contentBasePath, filePath)
+        let slug = path.relative(contentBasePath, filePath)
           .replace(/\.mdx?$/, '')
           .replace(/\\/g, '/');
+        
+        // Remove /index from slug so index.mdx files map to their parent directory
+        if (slug.endsWith('/index')) {
+          slug = slug.replace(/\/index$/, '');
+        }
           
         // Get order from meta.json if available
         const fileName = path.basename(file, path.extname(file));
