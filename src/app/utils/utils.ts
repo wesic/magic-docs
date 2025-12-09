@@ -399,48 +399,8 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
     }
     
     // Get previous and next pages based on the sidebar order
-    let prevPage = currentIndex > 0 ? sidebarOrderedPages[currentIndex - 1] : null;
-    let nextPage = currentIndex < sidebarOrderedPages.length - 1 ? sidebarOrderedPages[currentIndex + 1] : null;
-    
-    // Check if current page is in a section or nested folder
-    if (currentSlug.includes('/')) {
-      const currentParts = currentSlug.split('/');
-      const currentSection = currentParts[0];
-      
-      // Handle previous page navigation
-      if (prevPage) {
-        if (!prevPage.slug.includes('/')) {
-          // If previous page is a top-level page, set it to null
-          prevPage = null;
-        } else {
-          const prevParts = prevPage.slug.split('/');
-          const prevSection = prevParts[0];
-          
-          // Only set to null if it's from a completely different section
-          if (prevSection !== currentSection) {
-            prevPage = null;
-          }
-          // Allow navigation across subfolders within the same section
-        }
-      }
-      
-      // Handle next page navigation
-      if (nextPage) {
-        if (!nextPage.slug.includes('/')) {
-          // If next page is a top-level page (shouldn't happen normally), set it to null
-          nextPage = null;
-        } else {
-          const nextParts = nextPage.slug.split('/');
-          const nextSection = nextParts[0];
-          
-          // Only set to null if it's from a completely different section
-          if (nextSection !== currentSection) {
-            nextPage = null;
-          }
-          // Allow navigation across subfolders within the same section
-        }
-      }
-    }
+    const prevPage = currentIndex > 0 ? sidebarOrderedPages[currentIndex - 1] : null;
+    const nextPage = currentIndex < sidebarOrderedPages.length - 1 ? sidebarOrderedPages[currentIndex + 1] : null;
     
     return { prevPage, nextPage };
   } catch (error) {
