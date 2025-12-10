@@ -9,7 +9,7 @@ const changelog = [
         title: "New Templates",
         description: "Explore our latest templates for faster development",
         bullets: [
-          "Magic Docs - Documentation template",
+          "Sapphive Docs - Documentation",
           "Magic Bio - Personal profile template"
         ]
       },

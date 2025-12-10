@@ -1,10 +1,10 @@
-# Magic Docs
+# Sapphive Docs
 
-Magic Docs by Once UI is a simple, modern, MDX-based documentation system built with Next.js. It automatically generates navigation based on the MDX files in the content directory. It comes with a built-in roadmap and changelog.
+Sapphive Docs is a simple, modern, MDX-based documentation system built with Next.js. It automatically generates navigation based on the MDX files in the content directory. It comes with a built-in roadmap and changelog.
 
 View the demo [here](https://docs.once-ui.com).
 
-![Magic Docs](public/images/cover.jpg)
+![Sapphive Docs](public/images/cover.jpg)
 
 ## Getting started
 
@@ -59,7 +59,7 @@ Read the full documentation [here](https://docs.once-ui.com/magic-docs/quick-sta
 - Searchable content with command palette (Cmd+K / Ctrl+K)
 - Automatically generated, responsive sidebar
 
-Magic Docs was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
+Sapphive Docs was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
 
 ## Creators
 
@@ -70,9 +70,9 @@ Lorant One: [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://
 - Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
 - Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
 
-## Magic Docs
+## Sapphive Docs
 
-This project is built with [Magic Docs](https://once-ui.com/products/magic-docs). Build your own documentation with Magic Docs for free!
+This documentation is powered by Sapphive. Visit [Sapphive](https://sapphive.com) for more WHMCS modules and solutions!
 
 ## License
 

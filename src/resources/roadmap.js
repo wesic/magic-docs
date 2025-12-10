@@ -1,6 +1,6 @@
 const roadmap = [
   {
-    product: "Magic Docs Core",
+    product: "Sapphive Docs Core",
     brand: "indigo",
     columns: [
       {
@@ -88,7 +88,7 @@ const roadmap = [
     ]
   },
   {
-    product: "Magic Docs Extensions",
+    product: "Sapphive Docs Extensions",
     brand: "cyan",
     columns: [
       {

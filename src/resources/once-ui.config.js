@@ -139,8 +139,8 @@ const social = [
 const schema = {
   logo: "",
   type: "Organization",
-  name: "Magic Docs",
-  description: "Magic Docs is a simple and beautiful documentation template built with Once UI.",
+  name: "Sapphive Docs",
+  description: "Sapphive Docs - Comprehensive documentation for Sapphive WHMCS modules and solutions.",
   email: "",
   locale: "en_US"
 };
@@ -150,7 +150,7 @@ const meta = {
     title: `Docs – ${schema.name}`,
     description: schema.description,
     path: "/",
-    image: "/api/og/generate?title=Magic Templates&description=Documentation of the official Once UI templates"
+    image: "/api/og/generate?title=Sapphive+Docs&description=Comprehensive+documentation+for+Sapphive+WHMCS+modules"
   },
   roadmap: {
     title: `Roadmap – ${schema.name}`,
