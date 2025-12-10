@@ -166,8 +166,8 @@ export function Header() {
         <Row maxWidth={layout.header.width} vertical="center" horizontal="between" gap="l" fillWidth>
           <Row vertical="center" gap="16">
             <NavIcon hide m={{hide: false}} onClick={toggleSidebar}/>
-            <Logo className="dark-flex" wordmark="/trademark/type-dark.svg" size="s" href="/"/>
-            <Logo className="light-flex" wordmark="/trademark/type-light.svg" size="s" href="/"/>
+            <Logo className="dark-flex" wordmark="/trademark/logo-dark.svg" size="l" href="/" title="Sapphive Docs"/>
+            <Logo className="light-flex" wordmark="/trademark/logo-dark.svg" size="l" href="/" title="Sapphive Docs"/>
             
             {/* Navigation Links */}
             <Row gap="4" paddingLeft="12">

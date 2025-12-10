@@ -21,10 +21,10 @@ export const Footer = () => {
           size="s"
           weight="default"
           variant="tertiary"
-          href="https://once-ui.com/products/magic-docs"
+          href="https://sapphive.com/whmcs-modules"
         >
           <Row gap="12" vertical="center">
-            Launch your docs with Once UI
+            Launch your WHMCS with Sapphive
             <Icon size="xs" name="arrowUpRight" onBackground="brand-medium" />
           </Row>
         </Button>
@@ -35,19 +35,10 @@ export const Footer = () => {
             Products
           </Row>
           <Row>
-            <SmartLink href="https://once-ui.com/products/once-ui-core">Once UI</SmartLink>
+            <SmartLink href="https://sapphive.com/whmcs-modules">PWA Plus for WHMCS</SmartLink>
           </Row>
           <Row>
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Magic Portfolio</SmartLink>
-          </Row>
-          <Row>
-            <SmartLink href="https://once-ui.com/products/magic-store">Magic Store</SmartLink>
-          </Row>
-          <Row>
-            <SmartLink href="https://once-ui.com/products/magic-docs">Magic Docs</SmartLink>
-          </Row>
-          <Row>
-            <SmartLink href="https://once-ui.com/products/magic-bio">Magic Bio</SmartLink>
+            <SmartLink href="https://sapphive.com/whmcs-modules">PhonePe for WHMCS</SmartLink>
           </Row>
         </Column>
         <Column gap="12" textVariant="label-default-m">
@@ -55,16 +46,10 @@ export const Footer = () => {
             Resources
           </Row>
           <Row>
-            <SmartLink href="https://dopler.app">About us</SmartLink>
+            <SmartLink href="https://sapphive.com/legal/terms-of-services">Terms of Service</SmartLink>
           </Row>
           <Row>
-            <SmartLink href="https://dopler.app/terms">Terms of Use</SmartLink>
-          </Row>
-          <Row>
-            <SmartLink href="https://dopler.app/privacy">Privacy Policy</SmartLink>
-          </Row>
-          <Row>
-            <SmartLink href="https://dopler.app/license">License Agreement</SmartLink>
+            <SmartLink href="https://sapphive.com/legal/privacy-policy">Privacy Policy</SmartLink>
           </Row>
         </Column>
         <Column data-border="rounded" gap="12" textVariant="label-default-m">
