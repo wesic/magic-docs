@@ -96,14 +96,14 @@ export default function Home() {
                   variant="label-default-s"
                   onBackground="neutral-weak"
                 >
-                  Simple, clean docs site
+                  Power, Your WHMCS Business
                 </Text>
             </Badge>
             <Heading variant="display-strong-s">
-              Magic Docs
+              Sapphive Docs
             </Heading>
             <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
-              Build amazing product documentations without writing a single line of code
+              Comprehensive guides and documentation to help you start working with Sapphive products as quickly as possible.
             </Text>
             <Button data-border="rounded" size="s" href="/get-started" variant="secondary" arrowIcon id="get-started">Quick start</Button>
           </Column>
@@ -122,214 +122,10 @@ export default function Home() {
             onBackground="neutral-weak"
             marginTop="8"
           >
-            Deploy your docs in minutes
+            Build you WHMCS Business with Sapphive
           </Text>
         </Column>
         <PageList depth={1} thumbnail={true} marginTop="24" minHeight={14}/>
-        <Heading as="h2" variant="display-default-xs" marginTop="48">
-          Components
-        </Heading>
-        <Grid fillWidth columns="2" s={{columns: "1"}} gap="8" marginTop="24">
-          <PageList path={["components"]} description={false}/>
-        </Grid>
-      </Column>
-      
-      {/* Latest Update Section */}
-      {routes['/changelog'] && (
-       <Column 
-       maxWidth={56}
-       background="overlay"
-       radius="l"
-       border="neutral-alpha-weak"
-     >
-       <Column paddingX="32" paddingY="24" fillWidth horizontal="between" s={{direction: "column"}} gap="4">
-         <Row fillWidth vertical="center" horizontal="between" gap="16" wrap>
-           <Heading as="h2" variant="display-default-xs">
-             Latest Update
-           </Heading>
-           <Button data-border="rounded" weight="default" variant="secondary" href="/changelog" size="s" suffixIcon="chevronRight">
-             All changes
-           </Button>
-         </Row>
-         <Text variant="label-default-s" onBackground="neutral-weak">
-           {formatDate(latestChangelogEntry.date)}
-         </Text>
-       </Column>
-        
-        <Column fillWidth>
-          {latestChangelogEntry.image && (
-            <Media
-              priority
-              sizes="(max-width: 768px) 100vw, 768px"
-              radius="l"
-              src={latestChangelogEntry.image} 
-              alt={`Illustration for ${latestChangelogEntry.title}`}
-              border="neutral-alpha-weak"
-              aspectRatio="16 / 9"
-            />
-          )}
-          <Column fillWidth gap="4" paddingX="32" paddingY="24">
-            <Heading as="h3">
-              {latestChangelogEntry.title}
-            </Heading>
-
-            {latestChangelogEntry.description && (
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                {latestChangelogEntry.description}
-              </Text>
-            )}
-          </Column>
-        </Column>
-      </Column>
-      )}
-      
-      {/* Roadmap Progress Section */}
-      <Column 
-        maxWidth={56}
-        background="overlay"
-        radius="l"
-        border="neutral-alpha-weak"
-      >
-        <Column paddingX="32" paddingY="24" fillWidth horizontal="between" s={{direction: "column"}} gap="4">
-          <Row fillWidth vertical="center" horizontal="between" gap="16" wrap>
-            <Heading as="h2" variant="display-default-xs">
-              Q2 2025 Roadmap
-            </Heading>
-            <Button data-border="rounded" weight="default" variant="secondary" href="/roadmap" size="s" suffixIcon="chevronRight">
-            View Roadmap
-          </Button>
-          </Row>
-          <Text variant="label-default-s" onBackground="neutral-weak">
-            Progress and task status
-          </Text>
-        </Column>
-        
-        <Line background="neutral-alpha-weak" />
-        
-        <Row fillWidth padding="32" gap="20" position="relative" s={{direction: "column"}}>
-          <Row fillWidth gap="12">
-            {/* Overall Progress */}
-            <Column fillWidth gap="8" paddingTop="8">
-              <Column fillWidth gap="20">
-                <Column fillWidth horizontal="center" gap="4">
-                  <Text 
-                    variant="display-strong-l" 
-                    onBackground="neutral-strong"
-                  >
-                    {roadmapStats.progressPercentage}%
-                  </Text>
-                  <Text 
-                    align="center"
-                    variant="label-default-s" 
-                    onBackground="neutral-weak"
-                    marginTop="8"
-                  >
-                    Overall progress
-                  </Text>
-                </Column>
-                
-                <Row
-                  height="8"
-                  fillWidth
-                  overflow="hidden"
-                  radius="full"
-                  background="neutral-alpha-weak"
-                  border="neutral-alpha-weak"
-                >
-                  <Row
-                    fillHeight
-                    radius="full"
-                    transition="micro-medium"
-                    solid="brand-strong"
-                    style={{ 
-                    width: `${roadmapStats.progressPercentage}%`,
-                  }} />
-                </Row>
-              </Column>
-              
-              {/* Task Status */}
-              <Grid fillWidth columns="3" s={{columns: "1"}} gap="8" marginTop="24">
-                {/* Planned Tasks */}
-                <Column 
-                  padding="l" 
-                  horizontal="center"
-                  radius="m" 
-                  border="neutral-alpha-weak" 
-                  background="overlay"
-                  gap="s"
-                >
-                  <Text 
-                    variant="display-default-m" 
-                    onBackground="neutral-strong"
-                  >
-                    {roadmapStats.totalTasks - roadmapStats.completedTasks - roadmapStats.inProgressTasks}
-                  </Text>
-                  <Row vertical="center" gap="8">
-                    <StatusIndicator color="blue" />
-                    <Text 
-                      variant="label-default-s" 
-                      onBackground="neutral-weak"
-                    >
-                      Planned
-                    </Text>
-                  </Row>
-                </Column>
-                
-                {/* In Progress Tasks */}
-                <Column 
-                  padding="l" 
-                  horizontal="center"
-                  radius="m" 
-                  border="neutral-alpha-weak" 
-                  background="overlay"
-                  gap="s"
-                >
-                  <Text 
-                    variant="display-default-m" 
-                    onBackground="neutral-strong"
-                  >
-                    {roadmapStats.inProgressTasks}
-                  </Text>
-                  <Row vertical="center" gap="8">
-                    <StatusIndicator color="yellow" />
-                    <Text 
-                      variant="label-default-s" 
-                      onBackground="neutral-weak"
-                    >
-                      In progress
-                    </Text>
-                  </Row>
-                </Column>
-
-                {/* Completed Tasks */}
-                <Column 
-                  padding="l" 
-                  horizontal="center"
-                  radius="m" 
-                  border="neutral-alpha-weak" 
-                  background="overlay"
-                  gap="s"
-                >
-                  <Text 
-                    variant="display-default-m" 
-                    onBackground="neutral-strong"
-                  >
-                    {roadmapStats.completedTasks}
-                  </Text>
-                  <Row vertical="center" gap="8">
-                    <StatusIndicator color="green" />
-                    <Text 
-                      variant="label-default-s" 
-                      onBackground="neutral-weak"
-                    >
-                      Completed
-                    </Text>
-                  </Row>
-                </Column>
-              </Grid>
-            </Column>
-          </Row>
-        </Row>
       </Column>
     </Column>
   );
