@@ -7,5 +7,10 @@
     "setup-guide": 4,
     "guides": 5,
     "support-maintenance": 6
+  },
+  "folders": {
+    "setup-guide": 1,
+    "guides": 2,
+    "support-maintenance": 3
   }
 }
