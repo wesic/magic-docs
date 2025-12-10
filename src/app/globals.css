@@ -1,0 +1,131 @@
+/* Vibrant Code Highlighting - Light Mode (Default) */
+.token.plain-text {
+  color: #595959 !important;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #2D7A00 !important;
+}
+
+.token.punctuation {
+  color: #595959 !important;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #0C6367 !important;
+}
+
+.token.boolean,
+.token.number {
+  color: #2D7A00 !important;
+}
+
+.token.attr-name {
+  color: #AC2401 !important;
+}
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #033CF8 !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #595959 !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #5625F7 !important;
+}
+
+.token.function,
+.token.class-name {
+  color: #033CF8 !important;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #AC2401 !important;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .token.plain-text {
+  color: #E8E8E8 !important;
+}
+
+[data-theme="dark"] .token.comment,
+[data-theme="dark"] .token.prolog,
+[data-theme="dark"] .token.doctype,
+[data-theme="dark"] .token.cdata {
+  color: #76ED53 !important;
+}
+
+[data-theme="dark"] .token.punctuation {
+  color: #E8E8E8 !important;
+}
+
+[data-theme="dark"] .token.property,
+[data-theme="dark"] .token.tag,
+[data-theme="dark"] .token.constant,
+[data-theme="dark"] .token.symbol,
+[data-theme="dark"] .token.deleted {
+  color: #5FEF61 !important;
+}
+
+[data-theme="dark"] .token.boolean,
+[data-theme="dark"] .token.number {
+  color: #76ED53 !important;
+}
+
+[data-theme="dark"] .token.attr-name {
+  color: #FF9964 !important;
+}
+
+[data-theme="dark"] .token.selector,
+[data-theme="dark"] .token.string,
+[data-theme="dark"] .token.char,
+[data-theme="dark"] .token.builtin,
+[data-theme="dark"] .token.inserted {
+  color: #84B5FD !important;
+}
+
+[data-theme="dark"] .token.operator,
+[data-theme="dark"] .token.entity,
+[data-theme="dark"] .token.url,
+[data-theme="dark"] .language-css .token.string,
+[data-theme="dark"] .style .token.string {
+  color: #E8E8E8 !important;
+}
+
+[data-theme="dark"] .token.atrule,
+[data-theme="dark"] .token.attr-value,
+[data-theme="dark"] .token.keyword {
+  color: #C7A2FD !important;
+}
+
+[data-theme="dark"] .token.function,
+[data-theme="dark"] .token.class-name {
+  color: #84B5FD !important;
+}
+
+[data-theme="dark"] .token.regex,
+[data-theme="dark"] .token.important,
+[data-theme="dark"] .token.variable {
+  color: #FF9964 !important;
+}

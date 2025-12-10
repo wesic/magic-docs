@@ -13,7 +13,7 @@ This guide covers deploying PhonePe Payment Gateway to production environment.
 ## Pre-Deployment Checklist
 
 <Grid fillWidth gap="20" columns="2" s={{columns: 1}} marginTop="24" marginBottom="32">
-  <Card padding="24" radius="l" border="neutral-alpha-medium">
+  <Card padding="24" radius="l" border="neutral-alpha-medium" fillWidth style={{height: "100%"}}>
     <Column gap="16">
       <Row gap="12" horizontal="start" vertical="center">
         <Icon name="server" size="l" onBackground="brand-medium" />
@@ -29,7 +29,7 @@ This guide covers deploying PhonePe Payment Gateway to production environment.
     </Column>
   </Card>
 
-  <Card padding="24" radius="l" border="neutral-alpha-medium">
+  <Card padding="24" radius="l" border="neutral-alpha-medium" fillWidth style={{height: "100%"}}>
     <Column gap="16">
       <Row gap="12" horizontal="start" vertical="center">
         <Icon name="package" size="l" onBackground="brand-medium" />
@@ -45,7 +45,7 @@ This guide covers deploying PhonePe Payment Gateway to production environment.
     </Column>
   </Card>
 
-  <Card padding="24" radius="l" border="neutral-alpha-medium">
+  <Card padding="24" radius="l" border="neutral-alpha-medium" fillWidth style={{height: "100%"}}>
     <Column gap="16">
       <Row gap="12" horizontal="start" vertical="center">
         <Icon name="settings" size="l" onBackground="brand-medium" />
@@ -61,10 +61,9 @@ This guide covers deploying PhonePe Payment Gateway to production environment.
     </Column>
   </Card>
 
-  <Card padding="24" radius="l" border="neutral-alpha-medium">
+  <Card padding="24" radius="l" border="neutral-alpha-medium" fillWidth style={{height: "100%"}}>
     <Column gap="16">
       <Row gap="12" horizontal="start" vertical="center">
-        <Icon name="checkCircle" size="l" onBackground="brand-medium" />
         <Text variant="heading-strong-m" onBackground="neutral-strong">Testing Complete</Text>
       </Row>
       <Column gap="8">
@@ -82,34 +81,21 @@ This guide covers deploying PhonePe Payment Gateway to production environment.
 
 ### Step 1: Environment Switch
 
-<Text variant="body-default-m" onBackground="neutral-weak" marginBottom="12">
-Switch from development to production:
-</Text>
-
-<Column gap="10" marginBottom="24">
-  <Text variant="body-default-m" onBackground="neutral-weak">1. Log in to WHMCS Admin Panel</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">2. Go to Settings → Payment Gateways</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">3. Click PhonePe Settings</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">4. Change Environment: Development → Production</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">5. Verify all credentials are correct</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">6. Click Save Changes</Text>
-</Column>
+- Log in to WHMCS Admin Panel
+- Go to Settings → Payment Gateways
+- Open PhonePe Settings
+- Change Environment: Development → Production
+- Verify credentials, then Save Changes
 
 ### Step 2: Verify Production Credentials
 
-<Card padding="24" radius="l" border="accent-alpha-medium" background="accent-alpha-weak" marginBottom="24">
-  <Column gap="16">
-    <Text variant="heading-strong-m" onBackground="neutral-strong">Credential Verification</Text>
-    <Column gap="8">
-      <Text variant="body-default-s" onBackground="neutral-weak">1. Log in to PhonePe Business Account</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">2. Switch to Production mode</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">3. Copy Production Merchant ID</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">4. Copy Production API Key</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">5. Verify both match WHMCS configuration</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">6. Test with small transaction</Text>
-    </Column>
-  </Column>
-</Card>
+- Credential Verification
+- Log in to PhonePe Business Account
+- Switch to Production mode
+- Copy Production Merchant ID
+- Copy Production API Key
+- Verify both match WHMCS configuration
+- Test with a small transaction
 
 ### Step 3: Verify Callback Configuration
 
@@ -142,33 +128,21 @@ tar -czf whmcs_files_backup_$(date +%Y%m%d_%H%M%S).tar.gz /path/to/whmcs
 
 ### Step 2: Enable Production Mode
 
-<Column gap="10" marginTop="16" marginBottom="24">
-  <Text variant="body-default-m" onBackground="neutral-weak">1. Set PhonePe to Production environment</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">2. Enable production credentials</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">3. Activate payment processing</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">4. Enable customer notifications</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">5. Enable admin alerts</Text>
-  <Text variant="body-default-m" onBackground="neutral-weak">6. Start monitoring systems</Text>
-</Column>
+- Set PhonePe to Production environment
+- Enable production credentials
+- Activate payment processing
+- Enable customer notifications
+- Enable admin alerts
+- Start monitoring systems
 
 ### Step 3: Test First Transaction
 
-<Card padding="24" radius="l" border="brand-alpha-medium" background="brand-alpha-weak" marginBottom="24">
-  <Column gap="16">
-    <Text variant="heading-strong-m" onBackground="neutral-strong">Production Test</Text>
-    <Text variant="body-default-m" onBackground="neutral-weak">
-      Process a test transaction in production:
-    </Text>
-    <Column gap="8">
-      <Text variant="body-default-s" onBackground="neutral-weak">1. Create test invoice for small amount</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">2. Process payment through PhonePe</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">3. Verify payment received and recorded</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">4. Check invoice status updated</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">5. Verify confirmations sent</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak">6. Review transaction logs</Text>
-    </Column>
-  </Column>
-</Card>
+- Create test invoice for small amount
+- Process payment through PhonePe
+- Verify payment received and recorded
+- Check invoice status updated
+- Verify confirmations sent
+- Review transaction logs
 
 ## Security Deployment
 
@@ -276,7 +250,7 @@ If payments fail in production:
 
 ### Rollback Procedure
 
-<Card padding="24" radius="l" border="danger-alpha-medium" background="danger-alpha-weak" marginTop="24" marginBottom="24">
+<Card padding="24" radius="l" border="danger-alpha-medium" background="danger-alpha-weak" marginTop="24" marginBottom="24" fillWidth>
   <Column gap="16">
     <Text variant="heading-strong-m" onBackground="neutral-strong">Emergency Rollback</Text>
     <Text variant="body-default-m" onBackground="neutral-weak">
@@ -324,7 +298,7 @@ Confirm performance standards:
 
 ## Deployment Checklist
 
-<Card padding="24" radius="l" border="neutral-alpha-medium" marginTop="24" marginBottom="24">
+<Card padding="24" radius="l" border="neutral-alpha-medium" marginTop="24" marginBottom="24" fillWidth>
   <Column gap="16">
     <Text variant="heading-strong-m" onBackground="neutral-strong">Final Deployment Checklist</Text>
     <Column gap="8">
