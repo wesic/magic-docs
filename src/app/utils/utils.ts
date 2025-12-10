@@ -335,11 +335,15 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
         // Sort pages within the folder
         const sortedFolderPages = [...folderPages].sort((a, b) => {
           // Extract page name from slug (last part after the slash)
-          const aName = a.slug.split('/').pop()!;
-          const bName = b.slug.split('/').pop()!;
+          let aName = a.slug.split('/').pop()!;
+          let bName = b.slug.split('/').pop()!;
           
           // For direct children, check if pages have order in section meta.json
           if (folder === '') {
+            // Handle section index pages (e.g., 'pwa-plus' -> 'index')
+            if (a.slug === section) aName = 'index';
+            if (b.slug === section) bName = 'index';
+            
             const aOrder = sectionMetaData.pages?.[aName];
             const bOrder = sectionMetaData.pages?.[bName];
             
