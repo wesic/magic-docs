@@ -15,9 +15,9 @@ Get assistance with PhonePe Payment Gateway installation, configuration, and tro
 
 Before contacting support, check these helpful resources:
 
-<Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginTop="24" marginBottom="32">
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+<Grid fillWidth gap="16" columns="3" s={{columns: 1}} marginTop="24" marginBottom="32">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "200px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Row gap="12" horizontal="start" vertical="center">
         <Icon name="book" size="l" onBackground="brand-medium" />
         <Text variant="heading-strong-m" onBackground="neutral-strong">Getting Started</Text>
@@ -39,8 +39,8 @@ Before contacting support, check these helpful resources:
     </Column>
   </Card>
 
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "200px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Row gap="12" horizontal="start" vertical="center">
         <Icon name="settings" size="l" onBackground="brand-medium" />
         <Text variant="heading-strong-m" onBackground="neutral-strong">Configuration & Usage</Text>
@@ -62,8 +62,8 @@ Before contacting support, check these helpful resources:
     </Column>
   </Card>
 
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "200px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Row gap="12" horizontal="start" vertical="center">
         <Icon name="tool" size="l" onBackground="brand-medium" />
         <Text variant="heading-strong-m" onBackground="neutral-strong">Troubleshooting</Text>
@@ -102,8 +102,8 @@ Before contacting support, check these helpful resources:
 ## Support Categories
 
 <Grid fillWidth gap="16" columns="2" s={{columns: 1}} marginBottom="32">
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "220px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Text variant="heading-strong-m" onBackground="neutral-strong">Sales Inquiries</Text>
       <Text variant="body-default-s" onBackground="neutral-weak">sales@sapphive.com</Text>
       <Column gap="6" paddingTop="8">
@@ -115,8 +115,8 @@ Before contacting support, check these helpful resources:
     </Column>
   </Card>
 
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "220px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Text variant="heading-strong-m" onBackground="neutral-strong">Technical Support</Text>
       <Text variant="body-default-s" onBackground="neutral-weak">support@sapphive.com</Text>
       <Column gap="6" paddingTop="8">
@@ -128,8 +128,8 @@ Before contacting support, check these helpful resources:
     </Column>
   </Card>
 
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "220px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Text variant="heading-strong-m" onBackground="neutral-strong">Migration Assistance</Text>
       <Text variant="body-default-s" onBackground="neutral-weak">migrations@sapphive.com</Text>
       <Column gap="6" paddingTop="8">
@@ -141,8 +141,8 @@ Before contacting support, check these helpful resources:
     </Column>
   </Card>
 
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "220px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Text variant="heading-strong-m" onBackground="neutral-strong">Compliance & Security</Text>
       <Text variant="body-default-s" onBackground="neutral-weak">compliance@sapphive.com</Text>
       <Column gap="6" paddingTop="8">
@@ -157,61 +157,59 @@ Before contacting support, check these helpful resources:
 
 ## What to Include in Your Ticket
 
-<Card padding="24" radius="l" border="neutral-alpha-medium" marginBottom="32">
-  <Column gap="16">
-    <Text variant="heading-strong-m" onBackground="neutral-strong">For faster resolution, please provide:</Text>
-    
-    <Column gap="12">
-      <Text variant="heading-strong-s" onBackground="neutral-strong">System Information:</Text>
-      <Column gap="6">
-        <Text variant="body-default-s" onBackground="neutral-weak">• WHMCS version</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• PHP version</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• Server type (cPanel, Plesk, etc.)</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• PhonePe Payment Gateway version</Text>
-      </Column>
-    </Column>
-    
-    <Column gap="12">
-      <Text variant="heading-strong-s" onBackground="neutral-strong">Issue Details:</Text>
-      <Column gap="6">
-        <Text variant="body-default-s" onBackground="neutral-weak">• Clear description of the issue</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• Steps to reproduce</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• Expected vs actual behavior</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• Transaction IDs (if payment-related)</Text>
-      </Column>
-    </Column>
-    
-    <Column gap="12">
-      <Text variant="heading-strong-s" onBackground="neutral-strong">Supporting Materials:</Text>
-      <Column gap="6">
-        <Text variant="body-default-s" onBackground="neutral-weak">• Screenshots or screen recordings</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• Error messages (full text)</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• Browser console logs</Text>
-        <Text variant="body-default-s" onBackground="neutral-weak">• Server error logs</Text>
-      </Column>
+<Column gap="16" marginBottom="32">
+  <Text variant="heading-strong-m" onBackground="neutral-strong">For faster resolution, please provide:</Text>
+
+  <Column gap="12">
+    <Text variant="heading-strong-s" onBackground="neutral-strong">System Information:</Text>
+    <Column gap="6">
+      <Text variant="body-default-s" onBackground="neutral-weak">• WHMCS version</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• PHP version</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• Server type (cPanel, Plesk, etc.)</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• PhonePe Payment Gateway version</Text>
     </Column>
   </Column>
-</Card>
+
+  <Column gap="12">
+    <Text variant="heading-strong-s" onBackground="neutral-strong">Issue Details:</Text>
+    <Column gap="6">
+      <Text variant="body-default-s" onBackground="neutral-weak">• Clear description of the issue</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• Steps to reproduce</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• Expected vs actual behavior</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• Transaction IDs (if payment-related)</Text>
+    </Column>
+  </Column>
+
+  <Column gap="12">
+    <Text variant="heading-strong-s" onBackground="neutral-strong">Supporting Materials:</Text>
+    <Column gap="6">
+      <Text variant="body-default-s" onBackground="neutral-weak">• Screenshots or screen recordings</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• Error messages (full text)</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• Browser console logs</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak">• Server error logs</Text>
+    </Column>
+  </Column>
+</Column>
 
 ## Response Time
 
 <Grid fillWidth gap="16" columns="3" s={{columns: 1}} marginBottom="32">
-  <Card padding="20" radius="m" border="neutral-alpha-medium">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="neutral-alpha-medium" style={{width: "100%", minHeight: "120px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Text variant="heading-strong-s" onBackground="neutral-strong">Standard Tickets</Text>
       <Text variant="body-default-m" onBackground="neutral-weak">24-48 hours</Text>
     </Column>
   </Card>
   
-  <Card padding="20" radius="m" border="accent-alpha-medium" background="accent-alpha-weak">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="accent-alpha-medium" background="accent-alpha-weak" style={{width: "100%", minHeight: "120px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Text variant="heading-strong-s" onBackground="neutral-strong">Priority Issues</Text>
       <Text variant="body-default-m" onBackground="neutral-weak">12-24 hours</Text>
     </Column>
   </Card>
   
-  <Card padding="20" radius="m" border="brand-alpha-medium" background="brand-alpha-weak">
-    <Column gap="12">
+  <Card padding="20" radius="m" border="brand-alpha-medium" background="brand-alpha-weak" style={{width: "100%", minHeight: "120px", display: "flex", flexDirection: "column", justifyContent: "flex-start", flex: 1}}>
+    <Column gap="12" fillWidth>
       <Text variant="heading-strong-s" onBackground="neutral-strong">Critical Issues</Text>
       <Text variant="body-default-m" onBackground="neutral-weak">Within 6 hours</Text>
     </Column>
