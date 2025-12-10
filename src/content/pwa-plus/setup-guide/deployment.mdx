@@ -60,14 +60,12 @@ Best practices to launch PWA Plus in production.
 <Card padding="20" radius="l" border="neutral-alpha-medium" fillWidth marginBottom="24">
   <Column gap="10">
     <Text variant="label-strong-m" onBackground="neutral-strong">Recommended Server Settings</Text>
-    <Card padding="12" radius="m" background="neutral-alpha-weak">
-      <Text variant="label-default-s" onBackground="neutral-medium" style={{fontFamily: "monospace", whiteSpace: "pre"}}>
+    <Text variant="label-default-s" onBackground="neutral-medium" style={{fontFamily: "monospace", whiteSpace: "pre"}}>
 memory_limit = 256M
 max_execution_time = 300
 upload_max_filesize = 64M
 post_max_size = 64M
-      </Text>
-    </Card>
+    </Text>
     <Text variant="body-default-s" onBackground="neutral-weak">Ensure appropriate permissions: 755 for directories, 644 for files in `/modules/addons/pwaplus`.</Text>
   </Column>
 </Card>
