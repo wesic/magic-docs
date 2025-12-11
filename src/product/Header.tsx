@@ -206,7 +206,6 @@ export function Header() {
             
             {/* Social and Action Buttons */}
             <Button
-              as="a"
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -219,7 +218,6 @@ export function Header() {
               <Icon name="github" size="s" />
             </Button>
             <Button
-              as="a"
               href="https://discord.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -227,7 +225,6 @@ export function Header() {
               variant="tertiary"
               weight="default"
               data-border="conservative"
-              radius="full"
               style={{ borderRadius: "8px", padding: "4px" }}
             >
               <Icon name="discord" size="s" />
@@ -237,7 +234,6 @@ export function Header() {
               size="s"
               variant="primary"
               weight="default"
-              radius="full"
               style={{
                 borderRadius: "8px",
                 backgroundColor: theme === 'light' ? "#0b0b0c" : "#ffffff",
