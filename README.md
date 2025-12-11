@@ -8,7 +8,7 @@ Sapphive Docs is our MDXâ€‘powered documentation site built on Next.js. It autoâ
 
 1) Clone
 ```
-git clone https://github.com/wesic/sapphive-docs-v2.git
+git clone https://github.com/wesic/sapphive-docs.git
 cd sapphive-docs
 ```
 
