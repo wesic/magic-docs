@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Button, Fade, Flex, Logo, NavIcon, Row, Kbar, useTheme } from "@once-ui-system/core";
+import { Button, Fade, Flex, Logo, NavIcon, Row, Kbar, useTheme, Icon } from "@once-ui-system/core";
 import { layout, routes } from "@/resources/once-ui.config";
 import { Sidebar, NavigationItem } from "./Sidebar";
 
@@ -162,7 +162,7 @@ export function Header() {
         top="0"
         left="0"
       />
-      <Flex as="header" horizontal="center" position="sticky" top="0" zIndex={9} fillWidth vertical="center" paddingY="12" paddingX="l">
+      <Flex as="header" horizontal="center" position="sticky" top="0" zIndex={9} fillWidth vertical="center" paddingY="12" paddingX="l" background="surface">
         <Row maxWidth={layout.header.width} vertical="center" horizontal="between" gap="l" fillWidth>
           <Row vertical="center" gap="16">
             <NavIcon hide m={{hide: false}} onClick={toggleSidebar}/>
@@ -185,16 +185,69 @@ export function Header() {
               </Button>
             </Row>
           </Row>
-          
+         
           <Row horizontal="end" gap="8" vertical="center">
+            
+            {/* Kbar Search */}
+
             <Kbar items={kbar} radius="s" background="neutral-alpha-weak" data-border="conservative">
-              <Button size="s" variant="tertiary" weight="default" data-border="conservative">
-                <Row vertical="center" gap="16" style={{marginLeft: '-0.5rem'}} paddingRight="8">
-                  <Row background="neutral-alpha-medium" paddingX="8" paddingY="4" radius="s" data-border="conservative" data-scaling="90" textVariant="body-default-xs" onBackground="neutral-medium">{isMac ? 'Cmd' : 'Ctrl'} k</Row>
-                  Search docs...
+              <Button 
+                size="s" 
+                variant="tertiary" 
+                weight="default" 
+                data-border="conservative">
+                  
+                <Row vertical="center" gap="8" style={{marginLeft: '-0.5rem'}} paddingRight="1">
+                  <Row background="neutral-alpha-medium" paddingX="8" paddingY="4" radius="m" data-border="conservative" data-scaling="90" textVariant="body-default-xs" onBackground="neutral-medium">{isMac ? 'Cmd' : 'Ctrl'} k</Row>
+                  Search...
                 </Row>
               </Button>
             </Kbar>
+            
+            {/* Social and Action Buttons */}
+            <Button
+              as="a"
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              size="s"
+              variant="tertiary"
+              weight="default"
+              data-border="conservative"
+              style={{ borderRadius: "8px", padding: "4px" }}
+            >
+              <Icon name="github" size="s" />
+            </Button>
+            <Button
+              as="a"
+              href="https://discord.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              size="s"
+              variant="tertiary"
+              weight="default"
+              data-border="conservative"
+              radius="full"
+              style={{ borderRadius: "8px", padding: "4px" }}
+            >
+              <Icon name="discord" size="s" />
+            </Button>
+            <Button
+              href="/sign-up"
+              size="s"
+              variant="primary"
+              weight="default"
+              radius="full"
+              style={{
+                borderRadius: "8px",
+                backgroundColor: theme === 'light' ? "#0b0b0c" : "#ffffff",
+                color: theme === 'light' ? "#ffffff" : "#0b0b0c",
+                border: theme === 'light' ? "1px solid #0b0b0c" : "1px solid #d9d9d9",
+                boxShadow: "0 2px 6px rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <span style={{ fontWeight: 600 }}>Sign up</span>
+            </Button>
           </Row>
         </Row>
       </Flex>
